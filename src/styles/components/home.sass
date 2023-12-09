@@ -1,0 +1,66 @@
+@use '../variables'
+    
+main
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+
+section
+    width: 100%
+    padding: 20px
+    text-align: center
+    & * 
+        margin: 10px 0
+    & h2
+        font-size: 22px 
+
+    & hr
+        background-color: variables.$secundary-color
+        border: 1px solid variables.$secundary-color
+
+    & p 
+        text-align: left
+        max-width: 500px
+        
+
+svg
+    width: 152px
+    height: 152px
+    color: variables.$secundary-color
+    animation: floating 1.3s ease-in-out infinite
+
+@media screen and (min-width: 501px)
+    main
+        flex-direction: row
+        justify-content: space-around
+    
+    section
+        text-align: left
+
+    hr
+        width: 250px
+
+
+
+@keyframes floating
+    0%, 100%
+        transform: translateY(0) rotate(-45deg)
+    
+    10% 
+        transform: translateY(2.5px) rotate(-45deg)
+    
+    20%
+        transform: translateY(5px) rotate(-45deg)
+    
+    20%
+        transform: translateY(8px) rotate(-45deg)
+    
+    50%
+        transform: translateY(10px) rotate(-45deg)
+    
+    75%
+        transform: translateY(5px) rotate(-45deg)
+    
+    90%
+        transform: translateY(2.5px) rotate(-45deg)

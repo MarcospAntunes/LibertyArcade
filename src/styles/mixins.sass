@@ -1,0 +1,14 @@
+@use 'variables'
+
+@mixin btn
+    background-color: variables.$secundary-color
+    color: variables.$primary-color 
+    border: none
+    border-radius: 13px
+    padding: 15px 
+    cursor: pointer
+    transition: 0.3s
+
+    &:hover
+        transform: translate(3px, 3px)
+        transition: 0.3s
