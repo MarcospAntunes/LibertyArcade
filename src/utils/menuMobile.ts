@@ -3,7 +3,7 @@ type openMenuProps = {
     setMenuVisibility: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-function openMenu({ menuVisibility, setMenuVisibility }: openMenuProps) {
+function openMenu({ menuVisibility, setMenuVisibility }: openMenuProps): void {
     const menu: HTMLElement = document.querySelector('nav')!
     const line1: HTMLElement = document.querySelector('.line1')!
     const line2: HTMLElement = document.querySelector('.line2')!

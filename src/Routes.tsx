@@ -3,7 +3,7 @@ import Home from './pages/Home.tsx'
 import Games from './pages/Games.tsx'
 import './styles/main.sass'
 
-function Router() {
+function Router(): JSX.Element {
 
   return (
     <>
