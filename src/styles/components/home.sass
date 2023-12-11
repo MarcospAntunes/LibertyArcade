@@ -7,24 +7,31 @@ main
     align-items: center
 
 section
+    display: flex
+    flex-direction: column
+    align-items: center
     width: 100%
     padding: 20px
     text-align: center
-    & * 
+    
+    * 
         margin: 10px 0
-    & h2
-        font-size: 22px 
+    h2
+        font-size: 22px
+        color: variables.$secundary-color
 
-    & hr
+    hr
         background-color: variables.$secundary-color
         border: 1px solid variables.$secundary-color
 
-    & p 
+    p 
         text-align: left
         max-width: 500px
+
+      
         
 
-svg
+#joystickAnimate
     width: 152px
     height: 152px
     color: variables.$secundary-color
@@ -38,9 +45,22 @@ svg
     section
         text-align: left
 
-    hr
-        width: 250px
+        h1
+            font-size: 36px
 
+        h2
+            font-size: 32px 
+
+        p 
+            text-align: left
+            max-width: 500px
+            font-size: 18px
+
+        hr
+            width: 250px
+
+    #sectionRight
+        align-items: flex-end 
 
 
 @keyframes floating
