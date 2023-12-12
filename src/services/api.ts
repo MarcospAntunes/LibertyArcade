@@ -1,6 +1,6 @@
-import { gameProps } from "../interfaces/game";
+import { gameProps, gamesProps } from "../interfaces/game";
 
-const url = "https://free-to-play-games-database.p.rapidapi.com/api/games";
+const url = "https://free-to-play-games-database.p.rapidapi.com/api/game";
 
 const options = {
     method: 'GET',
@@ -10,14 +10,27 @@ const options = {
     }
 };
 
-async function allGames(setGames: React.Dispatch<React.SetStateAction<gameProps[]>>) {
+async function allGames(setGames: React.Dispatch<React.SetStateAction<gamesProps[]>>) {
     try{
-        const response = await fetch(url, options)
-        const data = await response.json()
-        setGames(data)
+        const response = await fetch(`${url}s`, options);
+        const data = await response.json();
+        setGames(data);
     } catch(error) {
-        console.log("Erro ao buscar jogos", error)
+        console.log("Erro ao buscar jogos", error);
     }
 }
 
-export {allGames}
+async function specificGame(id: number, setGameData: React.Dispatch<React.SetStateAction<gameProps>>) {
+    
+    try {
+        const urlGame = `${url}?id=${id}`;
+        const response = await fetch(urlGame, options);
+        const data = await response.json();
+        setGameData(data)
+    } catch (error) {
+        console.log("Erro ao buscar este jogo", error)
+    }
+}
+
+
+export {allGames, specificGame}
