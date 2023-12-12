@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Home from './pages/Home.tsx'
 import Games from './pages/Games.tsx'
 import './styles/main.sass'
+import GameOverview from './pages/gameOverview.tsx'
 
 function Router(): JSX.Element {
 
@@ -11,6 +12,7 @@ function Router(): JSX.Element {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/games' element={<Games />}/>
+          <Route path="/game/:title" element={<GameOverview />} />
         </Routes>
       </BrowserRouter>
     </>
