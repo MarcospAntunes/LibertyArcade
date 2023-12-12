@@ -8,8 +8,8 @@ function Home(): JSX.Element {
     return(
         <>
             <Header />
-            <main>
-                <section id="sectionLeft">
+            <main id="mainHome">
+                <section className="sectionHome" id="sectionLeft">
                     <h1>Liberty Arcade</h1>
                     <h2>Games for all</h2>
 
@@ -17,10 +17,10 @@ function Home(): JSX.Element {
                         <hr />
                         Liberty Arcade, where fun is free and the freedom to play reigns, offers a unique gaming experience as an invitation to explore a world of entertainment without financial borders.
                     </p>
-                    <Button text="Get Started now!" />
+                    <Button onClick={() => ""} text="Get Started now!" />
                 </section>
 
-                <section id="sectionRight">
+                <section className="sectionHome" id="sectionRight">
                     <BiSolidJoystick id="joystickAnimate" />
                 </section>
             </main>      
