@@ -1,0 +1,47 @@
+@use '../variables'
+    
+.gameCard
+    width: 49%
+    min-width: 165px
+    max-width: 300px
+    min-height: 190px
+    max-height: 325px
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    gap: 5px
+    padding: 10px
+    border-radius: 10px
+    background: linear-gradient(45deg, #9a9c9a13 50%, #4E3F3B)
+    background-color: #9a9c9a13
+
+    & img
+        width: 100%
+        border-radius: 10px
+    & h3
+        font-size: 14px
+
+    & div
+        display: flex
+        justify-content: center
+        gap: 5px
+        align-items: center
+        
+    & svg
+        color: variables.$third-color
+        font-size: 24px
+
+    & button
+        width: 120px
+        height: 20px
+        font-size: 12px
+
+
+@media screen and (min-width: 501px)
+        .gameCard
+
+
+
+
+    
