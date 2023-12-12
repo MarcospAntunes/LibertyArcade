@@ -1,19 +1,21 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useEffect, useRef, useState } from "react"
-import fetchData from "../services/fetchData"
 import Header from "../components/Header"
 import FilterInput from "../components/FilterInput"
 import { filterGames } from "../utils/filterGamesFunction"
-import { gameProps } from "../interfaces/game"
+import { gamesProps } from "../interfaces/game"
+import GamesList from "../components/GamesList"
+import Card from "../components/Card"
+import { fetchDataGames } from "../services/fetchData"
 
 
 function Games(): JSX.Element {
-    const [ games, setGames ] = useState<gameProps[]>([])
+    const [ games, setGames ] = useState<gamesProps[]>([])
     const [ search, setSearch ] = useState<string[]>([])
-    const filtredGames = useRef<Array<object>>([])
+    const filtredGames = useRef<Array<gamesProps>>([])
 
     useEffect(() => {
-        fetchData({ setGames })
+        fetchDataGames({ setGames })
     }, [])
 
     filterGames({ search, filtredGames, games }) 
@@ -27,7 +29,25 @@ function Games(): JSX.Element {
                 </aside>
                 <div>
                     <section></section>
-                    <section></section>
+                    <section>
+                        <GamesList>
+                            {filtredGames.current.map((game: gamesProps) => (
+                                 <Card
+                                    key={game.id} 
+                                    developer = {game.developer}
+                                    game_url = {game.game_url}
+                                    genre = {game.genre} 
+                                    id = {game.id}
+                                    platform = {game.platform} 
+                                    publisher = {game.publisher} 
+                                    release_date = {game.release_date}
+                                    thumbnail = {game.thumbnail}
+                                    title = {game.title}
+                                />
+
+                            ))}
+                        </GamesList>
+                    </section>
                 </div>
             </main>
             <footer></footer>
