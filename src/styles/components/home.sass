@@ -1,21 +1,19 @@
 @use '../variables'
     
-main
+#mainHome
     display: flex
     flex-direction: column
     justify-content: center
     align-items: center
 
-section
+.sectionHome
     display: flex
     flex-direction: column
     align-items: center
     width: 100%
     padding: 20px
     text-align: center
-    
-    * 
-        margin: 10px 0
+
     h2
         font-size: 22px
         color: variables.$secundary-color
@@ -28,8 +26,10 @@ section
         text-align: left
         max-width: 500px
 
-      
-        
+
+#sectionLeft
+    * 
+        margin: 10px 0   
 
 #joystickAnimate
     width: 152px
@@ -38,11 +38,11 @@ section
     animation: floating 1.3s ease-in-out infinite
 
 @media screen and (min-width: 501px)
-    main
+    #mainHome
         flex-direction: row
         justify-content: space-around
     
-    section
+    .sectionHome
         text-align: left
 
         h1
