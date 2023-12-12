@@ -17,10 +17,10 @@ function Header(): JSX.Element {
             <nav 
                 style={{ display: menuVisibility ? 'flex' : 'none', visibility: menuVisibility ? 'visible' : 'hidden' }}
             >
-                <ul>
+                <menu>
                 <li><Link to={"/"}>Home</Link></li>
                 <li><Link to={"/games"}>Games</Link></li>
-                </ul>
+                </menu>
             </nav>
         </header>
     );
