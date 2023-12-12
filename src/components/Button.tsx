@@ -2,11 +2,12 @@ import '../styles/components/Button.sass'
 
 type ButtonProps = {
     text: string
+    onClick: React.MouseEventHandler<HTMLButtonElement>
 }
 
-function Button({text}: ButtonProps): JSX.Element {
+function Button({text, onClick}: ButtonProps): JSX.Element {
     return (
-        <button className="btn">{text}</button>
+        <button className="btn" onClick={onClick}>{text}</button>
     )
 }
 
