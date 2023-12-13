@@ -7,12 +7,17 @@ import { gamesProps } from "../interfaces/game"
 import GamesList from "../components/GamesList"
 import Card from "../components/Card"
 import { fetchDataGames } from "../services/fetchData"
+import '../styles/components/Games.sass'
+import { FaFilter } from "react-icons/fa6";
+import openFilter from "../utils/menuFilter"
+import Banner from "../components/Banner"
 
 
 function Games(): JSX.Element {
     const [ games, setGames ] = useState<gamesProps[]>([])
     const [ search, setSearch ] = useState<string[]>([])
     const filtredGames = useRef<Array<gamesProps>>([])
+    const [ filterVisibility, setFilterVisibility ] = useState(false)
 
     useEffect(() => {
         fetchDataGames({ setGames })
@@ -23,12 +28,53 @@ function Games(): JSX.Element {
     return (
         <>
             <Header />
-            <main>
-                <aside>
-                    <FilterInput name="Shooter" value="shooter"  search={search} setSearch={setSearch} />
-                </aside>
+            <main id="mainGames">
+                <div id="filterContainer">
+                    <FaFilter id="filterIcon" onClick={() => openFilter({ filterVisibility, setFilterVisibility})}/>
+                    <aside 
+                        id="filterListContainer" 
+                        style={
+                            { 
+                                display: filterVisibility ? 'flex' : 'none', visibility: filterVisibility ? 'visible' : 'hidden' 
+                            }
+                        }
+                    >
+                        <menu>
+                            <li>
+                                <FilterInput name="Shooter" value="shooter"  search={search} setSearch={setSearch} />
+                            </li>
+                            <li>
+                                <FilterInput name="Strategy" value="strategy"  search={search} setSearch={setSearch} />
+                            </li>
+                            <li>
+                                <FilterInput name="Anime" value="anime"  search={search} setSearch={setSearch} />
+                            </li>
+                            <li>
+                                <FilterInput name="Fantasy" value="fantasy"  search={search} setSearch={setSearch} />
+                            </li>
+                            <li>
+                                <FilterInput name="Sci-Fi" value="sci-fi"  search={search} setSearch={setSearch} />
+                            </li>
+                            <li>
+                                <FilterInput name="Racing" value="racing"  search={search} setSearch={setSearch} />
+                            </li>
+                            <li>
+                                <FilterInput name="MMORPG" value="mmorpg"  search={search} setSearch={setSearch} />
+                            </li>
+                            <li>
+                                <FilterInput name="Social" value="social"  search={search} setSearch={setSearch} />
+                            </li>
+                            <li>
+                                <FilterInput name="Sports" value="sports"  search={search} setSearch={setSearch} />
+                            </li>
+                        </menu>     
+                    </aside>
+                </div>
+                
                 <div>
-                    <section></section>
+                    <section id="bannerSection">
+                        <Banner />
+                    </section>
                     <section>
                         <GamesList>
                             {filtredGames.current.map((game: gamesProps) => (

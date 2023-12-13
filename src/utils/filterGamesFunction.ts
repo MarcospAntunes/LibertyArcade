@@ -26,7 +26,7 @@ function filterGenreFunction({ filter, setFilter, value, search, setSearch }: Fi
 function filterGames({ search, filtredGames, games }: filterGamesProps) {
   if (search.length > 0) {
       filtredGames.current = (games as gameProps[]).filter((game: gameProps) =>
-    search.includes(game.genre.toLowerCase())
+    search.includes(game.genre!.toLowerCase())
   );
   
   } else {
