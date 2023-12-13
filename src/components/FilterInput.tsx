@@ -10,7 +10,6 @@ type FilterInputProps = {
    setSearch: React.Dispatch<React.SetStateAction<string[]>>
 }
 
-
 function FilterInput({ name, value, search, setSearch }: FilterInputProps): JSX.Element {
    const [filter, setFilter] = useState(false);
  
@@ -19,14 +18,10 @@ function FilterInput({ name, value, search, setSearch }: FilterInputProps): JSX.
      filterGenreFunction({ filter, setFilter, value, search, setSearch });
    };
  
-   const checkbox = filter ? (
-     <IoCheckbox onClick={handleCheckboxClick} />
-   ) : (
-     <MdCheckBoxOutlineBlank onClick={handleCheckboxClick} />
-   );
+   const checkbox = filter ? <IoCheckbox  /> : <MdCheckBoxOutlineBlank />;
  
    return (
-     <span>
+     <span onClick={handleCheckboxClick}>
        {checkbox} {name}
      </span>
    );
