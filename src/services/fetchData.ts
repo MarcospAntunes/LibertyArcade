@@ -1,10 +1,11 @@
 import { gameProps, gamesProps } from "../interfaces/game"
-import { allGames, specificGame } from "./api"
+import { allGames, relevanceGame, specificGame } from "./api"
 
 type fetchDataProps = {
     setGames?: React.Dispatch<React.SetStateAction<gamesProps[]>> | React.Dispatch<React.SetStateAction<gameProps[]>>
     id?: number
     setGameData?: React.Dispatch<React.SetStateAction<gameProps>>
+    setGamePhoto?: React.Dispatch<React.SetStateAction<string>>
 }
 
 async function fetchDataGames({ setGames }: fetchDataProps) {
@@ -27,5 +28,15 @@ async function fetchDataGame({ setGameData, id }: fetchDataProps) {
     }
 }
 
+async function fetchPhotoGame({ setGamePhoto }: fetchDataProps) {
+    try {
+        await Promise.all([
+            relevanceGame(setGamePhoto!)
+        ])
+    } catch (error) {
+        console.log("Error ao requirir dados: ", error)
+    }
+}
 
-export {fetchDataGames, fetchDataGame}
+
+export {fetchDataGames, fetchDataGame, fetchPhotoGame}
