@@ -4,18 +4,38 @@ import { useEffect, useState } from "react";
 import { fetchDataGame } from "../services/fetchData";
 import Header from "../components/Header";
 import '../styles/components/GameOverview.sass'
+import Button from "../components/Button";
 
 function GameOverview(): JSX.Element {
     const location = useLocation();
-    const [gameData, setGameData] = useState<gameProps>({})
+    const [gameData, setGameData] = useState<gameProps>({});
     const id: number = location.state;
 
     useEffect(() => {
-        fetchDataGame({setGameData, id})
+        fetchDataGame({setGameData, id});
     }, [id])
     console.log(gameData)
 
     const photo = gameData.screenshots?.map((screenshot) => screenshot.image) || [""];
+    const {
+        title,
+        release_date,
+        description,
+        developer,
+        game_url,
+        genre,
+        minimum_system_requirements: {
+          os = 'Unknow',
+          processor = 'Unknow',
+          graphics = 'Unknow',
+          memory = 'Unknow',
+          storage = 'Unknow',
+        } = {},
+        platform,
+        publisher,
+        thumbnail,
+      } = gameData || {};
+      
 
     return(
         <>
@@ -26,39 +46,55 @@ function GameOverview(): JSX.Element {
 
                 <section id="gameInfosSection">
                     <div id="gameSectionContent">
-                        <figure><img src={gameData.thumbnail} alt={gameData.title} /></figure>
+                        <div id="containerImgButton">
+                            <figure><img src={thumbnail} alt={title} /></figure>
+                            <div id="conteinerButtons">
+                                <a href={game_url} target="_blank"><Button onClick={() => ""} text="Play"/></a>
+
+                                <Button onClick={() => document.documentElement.scrollTop = document.documentElement.scrollHeight} text="Requirements"/>
+                            </div>
+                        </div>
+
                         <div id="content">
-                            <h1>{gameData.title}</h1>
-                            <p>Prepare for {gameData.title}</p>
-                            <p>{gameData.description}</p>
-                            <p>Genre: {gameData.genre}</p>
+                            <h1>{title}</h1>
+                            <p>Prepare for {title}</p>
+                            <p>{description}</p>
+                            <p>Genre: {genre}</p>
                         </div>
 
                         <aside>
-                            <div>{gameData.platform}</div>
+                            <div>{platform}</div>
 
                             <div id="aboutGame">
                                 <div>
                                     <h3>Published by:</h3>
-                                    <p>{gameData.publisher}</p>
+                                    <p>{publisher}</p>
                                 </div>
                                 <div>
                                     <h3>Developed by:</h3>
-                                    <p>{gameData.developer}</p>
+                                    <p>{developer}</p>
                                 </div>
                             </div>
 
                             <div id="containerGenreData">
                                 <div>
                                     <h3>Genre:</h3>
-                                    <p>{gameData.genre}</p>
+                                    <p>{genre}</p>
                                 </div>
                                 <div>
                                     <h3>Release Data (US):</h3>
-                                    <p>{gameData.release_date}</p>
+                                    <p>{release_date}</p>
                                 </div>
                             </div>
                         </aside>
+                        <div id="systemRequirements">
+                                <h2>Minimum System Requirements:</h2>
+                                <p>OS: {os}</p>
+                                <p>Processor: {processor}</p>
+                                <p>Graphics: {graphics}</p>
+                                <p>Memory: {memory}</p>
+                                <p>Storage: {storage}</p>
+                        </div>
                     </div>
                 </section>
             </main>
