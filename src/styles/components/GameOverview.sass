@@ -39,6 +39,8 @@
         & p 
             max-width: 700px
             font-size: 14px
+            line-height: 2em
+            text-align: justify
 
     & aside
         display: flex
@@ -46,9 +48,10 @@
         justify-content: center
         align-items: center
         gap: 10px
+        max-width: 500px
         padding: 10px
         border-radius: 10px
-        background: linear-gradient(45deg, #9a9c9a13 50%, #4E3F3B)
+        background: linear-gradient(45deg, #9a9c9a13 70%, #4E3F3B)
 
         & #aboutGame   
             display: flex
@@ -74,6 +77,37 @@
             text-align: center
             gap: 50px
     
+    & #systemRequirements
+        display: flex
+        flex-direction: column
+        justify-content: center
+        align-items: flex-start
+        max-width: 500px
+        border-radius: 10px
+        padding: 10px
+        line-height: 2em
+        background: linear-gradient(45deg, #9a9c9a13 70%, #4E3F3B)
+
+        & h2
+            text-align: center
+    
+    & #containerImgButton
+        display: flex
+        flex-direction: column
+        justify-content: center
+        align-items: center
+        flex-wrap: wrap
+        gap: 10px
+
+        & #conteinerButtons
+            display: flex
+            justify-content: center
+            align-items: center
+            flex-wrap: wrap
+            gap: 10px 
+
+            & button
+                min-width: 100px
     
 
 
