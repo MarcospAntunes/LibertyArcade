@@ -35,38 +35,21 @@ function Games(): JSX.Element {
                         id="filterListContainer" 
                         style={
                             { 
-                                display: filterVisibility ? 'flex' : 'none', visibility: filterVisibility ? 'visible' : 'hidden' 
+                                display: filterVisibility ? 'flex' : 'none', 
+                                visibility: filterVisibility ? 'visible' : 'hidden' 
                             }
                         }
                     >
                         <menu>
-                            <li>
                                 <FilterInput name="Shooter" value="shooter"  search={search} setSearch={setSearch} />
-                            </li>
-                            <li>
                                 <FilterInput name="Strategy" value="strategy"  search={search} setSearch={setSearch} />
-                            </li>
-                            <li>
                                 <FilterInput name="Anime" value="anime"  search={search} setSearch={setSearch} />
-                            </li>
-                            <li>
                                 <FilterInput name="Fantasy" value="fantasy"  search={search} setSearch={setSearch} />
-                            </li>
-                            <li>
                                 <FilterInput name="Sci-Fi" value="sci-fi"  search={search} setSearch={setSearch} />
-                            </li>
-                            <li>
                                 <FilterInput name="Racing" value="racing"  search={search} setSearch={setSearch} />
-                            </li>
-                            <li>
                                 <FilterInput name="MMORPG" value="mmorpg"  search={search} setSearch={setSearch} />
-                            </li>
-                            <li>
                                 <FilterInput name="Social" value="social"  search={search} setSearch={setSearch} />
-                            </li>
-                            <li>
                                 <FilterInput name="Sports" value="sports"  search={search} setSearch={setSearch} />
-                            </li>
                         </menu>     
                     </aside>
                 </div>
@@ -90,7 +73,6 @@ function Games(): JSX.Element {
                                     thumbnail = {game.thumbnail}
                                     title = {game.title}
                                 />
-
                             ))}
                         </GamesList>
                     </section>
