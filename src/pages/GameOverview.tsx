@@ -54,12 +54,12 @@ function GameOverview(): JSX.Element {
                             </div>
                         </div>
 
-                        <div id="content">
+                        <article id="content">
                             <h1>{title !== null ? title : "Unknow"}</h1>
-                            <p>Prepare for {title !== null ? title : "Unknow"}</p>
+                            <h4>Prepare for {title !== null ? title : "Unknow"}</h4>
                             <p>{description !== null ? description : "Unknow"}</p>
                             <p>Genre: {genre !== null ? genre : "Unknow"}</p>
-                        </div>
+                        </article>
 
                         <aside>
                             <p>{platform !== null ? platform : "Unknow"}</p>
