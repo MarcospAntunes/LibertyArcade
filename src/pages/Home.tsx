@@ -13,10 +13,10 @@ function Home(): JSX.Element {
                     <h1>Liberty Arcade</h1>
                     <h2>Games for all</h2>
 
-                    <p>
+                    <span>
                         <hr />
-                        Liberty Arcade, where fun is free and the freedom to play reigns, offers a unique gaming experience as an invitation to explore a world of entertainment without financial borders.
-                    </p>
+                        <p>Liberty Arcade, where fun is free and the freedom to spanlay reigns, offers a unique gaming exspanerience as an invitation to explore a world of entertainment without financial borders.</p>
+                    </span>
                     <Button onClick={() => ""} text="Get Started now!" />
                 </section>
 
