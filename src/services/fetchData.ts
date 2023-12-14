@@ -10,9 +10,7 @@ type fetchDataProps = {
 
 async function fetchDataGames({ setGames }: fetchDataProps) {
     try {
-        await Promise.all([
-            allGames(setGames!),
-        ])
+        await Promise.all([ allGames(setGames!) ])
     } catch (error) {
         console.log("Error ao requirir dados: ", error)
     }
@@ -20,9 +18,7 @@ async function fetchDataGames({ setGames }: fetchDataProps) {
 
 async function fetchDataGame({ setGameData, id }: fetchDataProps) {
     try {
-        await Promise.all([
-            specificGame(id!, setGameData!)
-        ])
+        await Promise.all([ specificGame(id!, setGameData!) ])
     } catch (error) {
         console.log("Error ao requirir dados: ", error)
     }
@@ -30,9 +26,7 @@ async function fetchDataGame({ setGameData, id }: fetchDataProps) {
 
 async function fetchPhotoGame({ setGamePhoto }: fetchDataProps) {
     try {
-        await Promise.all([
-            relevanceGame(setGamePhoto!)
-        ])
+        await Promise.all([ relevanceGame(setGamePhoto!) ])
     } catch (error) {
         console.log("Error ao requirir dados: ", error)
     }
