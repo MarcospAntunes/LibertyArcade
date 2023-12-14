@@ -14,7 +14,6 @@ function GameOverview(): JSX.Element {
     useEffect(() => {
         fetchDataGame({setGameData, id});
     }, [id])
-    console.log(gameData)
 
     const photo = gameData.screenshots?.map((screenshot) => screenshot.image) || [""];
     const {
@@ -56,44 +55,44 @@ function GameOverview(): JSX.Element {
                         </div>
 
                         <div id="content">
-                            <h1>{title}</h1>
-                            <p>Prepare for {title}</p>
-                            <p>{description}</p>
-                            <p>Genre: {genre}</p>
+                            <h1>{title !== null ? title : "Unknow"}</h1>
+                            <p>Prepare for {title !== null ? title : "Unknow"}</p>
+                            <p>{description !== null ? description : "Unknow"}</p>
+                            <p>Genre: {genre !== null ? genre : "Unknow"}</p>
                         </div>
 
                         <aside>
-                            <p>{platform}</p>
+                            <p>{platform !== null ? platform : "Unknow"}</p>
 
                             <div id="aboutGame">
                                 <div>
                                     <h3>Published by:</h3>
-                                    <p>{publisher}</p>
+                                    <p>{publisher !== null ? publisher : "Unknow"}</p>
                                 </div>
                                 <div>
                                     <h3>Developed by:</h3>
-                                    <p>{developer}</p>
+                                    <p>{developer !== null ? publisher : "Unknow"}</p>
                                 </div>
                             </div>
 
                             <div id="containerGenreData">
                                 <div>
                                     <h3>Genre:</h3>
-                                    <p>{genre}</p>
+                                    <p>{genre !== null ? genre : "Unknow"}</p>
                                 </div>
                                 <div>
                                     <h3>Release Data (US):</h3>
-                                    <p>{release_date}</p>
+                                    <p>{release_date !== null ? release_date : "Unknow"}</p>
                                 </div>
                             </div>
                         </aside>
                         <div id="systemRequirements">
                                 <h2>Minimum System Requirements:</h2>
-                                <p><span>OS:</span> {os}</p>
-                                <p><span>Processor:</span> {processor}</p>
-                                <p><span>Graphics:</span> {graphics}</p>
-                                <p><span>Memory:</span> {memory}</p>
-                                <p><span>Storage:</span> {storage}</p>
+                                <p><span>OS:</span> {os !== null ? os : "Unknow"}</p>
+                                <p><span>Processor:</span> {processor !== null ? processor : "Unknow"}</p>
+                                <p><span>Graphics:</span> {graphics !== null ? graphics : "Unknow"}</p>
+                                <p><span>Memory:</span> {memory !== null ? memory : "Unknow"}</p>
+                                <p><span>Storage:</span> {storage !== null ? storage : "Unknow"}</p>
                         </div>
                     </div>
                 </section>
