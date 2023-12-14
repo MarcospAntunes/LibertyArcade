@@ -63,7 +63,7 @@ function GameOverview(): JSX.Element {
                         </div>
 
                         <aside>
-                            <div>{platform}</div>
+                            <p>{platform}</p>
 
                             <div id="aboutGame">
                                 <div>
@@ -89,11 +89,11 @@ function GameOverview(): JSX.Element {
                         </aside>
                         <div id="systemRequirements">
                                 <h2>Minimum System Requirements:</h2>
-                                <p>OS: {os}</p>
-                                <p>Processor: {processor}</p>
-                                <p>Graphics: {graphics}</p>
-                                <p>Memory: {memory}</p>
-                                <p>Storage: {storage}</p>
+                                <p><span>OS:</span> {os}</p>
+                                <p><span>Processor:</span> {processor}</p>
+                                <p><span>Graphics:</span> {graphics}</p>
+                                <p><span>Memory:</span> {memory}</p>
+                                <p><span>Storage:</span> {storage}</p>
                         </div>
                     </div>
                 </section>
