@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { BsJoystick } from "react-icons/bs";
 import "../styles/components/header.sass";
@@ -6,9 +6,11 @@ import { openMenu } from "../utils/menuMobile";
 
 function Header(): JSX.Element {
     const [menuVisibility, setMenuVisibility] = useState(false);
+    const navigete = useNavigate()
+
     return (
         <header>
-            <BsJoystick id="logo" />
+            <BsJoystick id="logo" onClick={() => navigete("/")} />
             <div id="menu-hamburger" onClick={() => openMenu({ menuVisibility, setMenuVisibility})}>
                 <div className="line line1"></div>
                 <div className="line line2"></div>
