@@ -1,0 +1,20 @@
+@use '../variables'
+    
+.inputForm
+    width: 65%
+    border: none
+    border-radius: 10px
+    padding: 10px
+    background-color: variables.$bg-color
+    color: variables.$primary-color
+
+.inputForm[type="submit"]
+    background-color: variables.$secundary-color
+    min-width: 150px
+    width: 25%
+    cursor: pointer
+    transition: 0.3
+
+    &:hover
+        transform: translate(-3px, -3px)
+        transition: 0.3s
