@@ -1,11 +1,11 @@
+@use '../mixins'
+
 form
-    width: 100%
-    height: 100%
-    display: flex
+    @include mixins.flexCenter
     flex-direction: column
-    justify-content: center
-    align-items: center
     flex-wrap: wrap
     gap: 15px
+    width: 100%
+    height: 100%
     margin: 10px 0
 

@@ -1,9 +1,8 @@
 @use '../variables'
+@use '../mixins'
 
 #filterContentContainer
-    display: flex
-    justify-content: center
-    align-items: center
+    @include mixins.flexCenter
     gap: 10px
 
     & svg

@@ -1,9 +1,7 @@
 @use 'variables'
 
 @mixin btn
-    display: flex
-    justify-content: center
-    align-items: center
+    @include flexCenter
     background-color: variables.$secundary-color
     color: variables.$primary-color 
     border: none
@@ -15,3 +13,8 @@
     &:hover
         transform: translate(3px, 3px)
         transition: 0.3s
+
+@mixin flexCenter
+    display: flex
+    justify-content: center
+    align-items: center

@@ -1,10 +1,9 @@
 @use '../variables'
+@use '../mixins'
     
 #mainHome
-    display: flex
+    @include mixins.flexCenter
     flex-direction: column
-    justify-content: center
-    align-items: center
     overflow: hidden
 
 .sectionHome

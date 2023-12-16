@@ -1,16 +1,15 @@
 @use '../variables'
+@use '../mixins'
     
 .gameCard
+    @include mixins.flexCenter
+    flex-direction: column
+    gap: 5px
     width: 49%
     min-width: 165px
     max-width: 400px
     min-height: 190px
     max-height: 325px
-    display: flex
-    flex-direction: column
-    justify-content: center
-    align-items: center
-    gap: 5px
     padding: 10px
     border-radius: 10px
     background: linear-gradient(45deg, #9a9c9a13 50%, #4E3F3B)
