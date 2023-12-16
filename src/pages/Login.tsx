@@ -6,6 +6,7 @@ import { useState } from "react";
 import useAuth from "../hooks/useAuth";
 import { handleLogin } from "../utils/validFom";
 import '../styles/components/Login.sass'
+import FormContainer from "../components/formContainer";
 
 function Login(): JSX.Element {
     const { login }: any = useAuth()
@@ -17,7 +18,7 @@ function Login(): JSX.Element {
 
     return(
         <main id="mainLogin">
-            <section id="formLoginContainer">
+            <FormContainer>
                 <h1>Login</h1>
                 <Form>
                     <InputForm
@@ -42,7 +43,7 @@ function Login(): JSX.Element {
                 </Form>
                 <p>{error}</p>
                 <p>Don't have an account? <Link to={"/register"}>Click here</Link> and create your account for free!</p>
-            </section>
+            </FormContainer>
         </main>
     )
 }
