@@ -38,12 +38,14 @@ function GameOverview(): JSX.Element {
 
     return(
         <>
-            <Header />
+            <Header back={true}/>
             <main id="mainGamesOverView">
                 <section id="gameSection" style={{backgroundImage: `url(${(photo[0])})`}}>
+                    
                 </section>
 
                 <section id="gameInfosSection">
+                
                     <div id="gameSectionContent">
                         <div id="containerImgButton">
                             <figure><img src={thumbnail} alt={title} /></figure>
