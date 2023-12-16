@@ -1,0 +1,37 @@
+@use '../variables'
+    
+#mainLogin
+    width: 100vw
+    height: 100vh
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    flex-wrap: wrap
+    padding: 10px
+
+    & #formLoginContainer
+        display: flex
+        flex-direction: column
+        justify-content: center
+        align-items: center
+        min-width: 280px
+        max-width: 500px
+        min-height: 350px
+        max-height: 600px
+
+        border-radius: 15px
+        padding: 15px
+        background: linear-gradient(45deg, #9a9c9a13 50%, #4E3F3B)
+        text-align: center
+
+        & h1
+            font-size: 32px
+
+        & p 
+            font-size: 14px
+
+        & a 
+            color: variables.$secundary-color
+            
+       
