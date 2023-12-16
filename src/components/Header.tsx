@@ -20,8 +20,15 @@ function Header(): JSX.Element {
                 style={{ display: menuVisibility ? 'flex' : 'none', visibility: menuVisibility ? 'visible' : 'hidden' }}
             >
                 <menu id="menuNav">
-                    <li><Link to={"/"}>Home</Link></li>
-                    <li><Link to={"/games"}>Games</Link></li>
+                    <div>
+                        <li><Link to={"/"}>Home</Link></li>
+                        <li><Link to={"/games"}>Games</Link></li>
+                    </div>
+
+                    <div>
+                        <li><Link to={"/login"}>Login</Link></li>
+                        <li><Link to={"/register"}>Register</Link></li>
+                    </div>
                 </menu>
             </nav>
         </header>
