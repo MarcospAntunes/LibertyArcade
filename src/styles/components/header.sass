@@ -10,12 +10,24 @@ header
     width: 100vw
     background-color: variables.$bg-color
 
-#logo
-    width: 42px
-    height: 42px
-    color: #1292BB
-    cursor: pointer
-    z-index: 1
+#logoButtonContainer
+    @include mixins.flexCenter
+    gap: 10px
+    height: 60px
+    
+    & #logo
+        width: 42px
+        height: 42px
+        color: #1292BB
+        cursor: pointer
+        z-index: 1
+    
+    & svg
+        width: 42px
+        height: 42px
+        color: variables.$secundary-color
+        cursor: pointer
+        z-index: 1
 
 #menu-hamburger 
     @include mixins.flexCenter
@@ -80,7 +92,7 @@ nav
         flex-direction: row
         justify-content: space-between
         align-items: center
-        margin-left: 85px
+        margin-left: 120px
         padding: 0 10px
 
         & div
