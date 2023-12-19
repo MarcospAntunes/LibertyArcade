@@ -27,6 +27,7 @@ export const handleLogin = ({ e, setError, email, password, login, navigate }:  
       return
     }
     navigate('/games')
+    window.location.reload()
   }
 
   export const handleRegister = ({ e, email, emailConf, password, passwordConf, name, setError, register, navigate }:  handleRegisterOrLoginProps) => {

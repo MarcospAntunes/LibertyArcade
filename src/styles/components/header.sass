@@ -5,6 +5,7 @@ header
     position: fixed
     display: flex
     justify-content: space-between
+    align-items: center
     padding: 20px
     z-index: 100
     width: 100vw
@@ -28,6 +29,26 @@ header
         color: variables.$secundary-color
         cursor: pointer
         z-index: 1
+
+#userContainer
+    @include mixins.flexCenter
+    gap: 10px        
+
+.favorite
+    width: 32px
+    height: 32px
+    
+    cursor: pointer
+
+#noFavorite
+    color: variables.$third-color
+
+#isFavorite
+    color: variables.$secundary-color
+    
+#photoUser
+    width: 50px
+    border-radius: 50%
 
 #menu-hamburger 
     @include mixins.flexCenter
@@ -69,35 +90,46 @@ nav
         @include mixins.flexCenter
         flex-direction: column
         gap: 5px
+    
+    & .logout
+        display: none
 
     & a
         text-decoration: none
         color: variables.$primary-color
         font-size: 20px
 
-@media screen and (min-width: 501px)
+@media screen and (min-width: 545px)
+    header
+        padding: 30px
+
     #menu-hamburger
         display: none
     
     nav
-        position: fixed
+        position: relative
         display: flex !important
         flex-direction: row
         visibility: visible !important
-        width: 100vw
-        height: 100px
+        height: 100%
         background-color: variables.$bg-color
     
     #menuNav  
         flex-direction: row
         justify-content: space-between
         align-items: center
-        margin-left: 120px
         padding: 0 10px
 
         & div
             flex-direction: row
             gap: 20px
+
+    .favorite
+        width: 52px
+        height: 52px
+    
+    #photoUser
+        width: 80px
 
 @keyframes appear
     0% 
