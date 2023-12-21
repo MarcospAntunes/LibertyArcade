@@ -1,6 +1,9 @@
 @use '../variables'
 @use '../mixins'
 
+#mainGamesOverView
+    padding-top: 100px
+
 #gameSection
     height: 300px
     background: no-repeat
@@ -28,6 +31,18 @@
         width: 100%
         border: 1px solid variables.$secundary-color
         border-radius: 10px
+    
+    & .favorite
+        width: 32px
+        height: 32px
+        cursor: pointer
+
+    & #noFavorite
+        color: variables.$third-color
+
+    & #isFavorite
+        color: variables.$secundary-color
+        
     
     & #content
         @include mixins.flexCenter

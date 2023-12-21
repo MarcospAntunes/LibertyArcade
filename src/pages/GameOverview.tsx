@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useLocation } from "react-router-dom"
 import { gameProps } from "../interfaces/game";
 import { useEffect, useState } from "react";
@@ -5,11 +6,16 @@ import { fetchDataGame } from "../services/fetchData";
 import Header from "../components/Header";
 import '../styles/components/GameOverview.sass'
 import Button from "../components/Button";
+import { useFavorite } from "../hooks/useFavorite";
+import { MdFavoriteBorder, MdOutlineFavorite } from "react-icons/md";
 
 function GameOverview(): JSX.Element {
     const location = useLocation();
     const [gameData, setGameData] = useState<gameProps>({});
+    const { favorite, addFavorite } = useFavorite()
+
     const id: number = location.state;
+    const isFavorite = favorite.some((fav: any) => fav.id === id)
 
     useEffect(() => {
         fetchDataGame({setGameData, id});
@@ -34,8 +40,9 @@ function GameOverview(): JSX.Element {
         publisher,
         thumbnail,
       } = gameData || {};
-      
 
+      const FavoriteIcon = isFavorite ? <MdOutlineFavorite className="favorite" id="isFavorite" onClick={() => addFavorite({ id, platform, thumbnail, title })} /> : <MdFavoriteBorder className="favorite" id="noFavorite" onClick={() => addFavorite({ id, platform, thumbnail, title })} />
+      
     return(
         <>
             <Header back={true}/>
@@ -53,6 +60,7 @@ function GameOverview(): JSX.Element {
                                 <a href={game_url} target="_blank"><Button onClick={() => ""} text="Play"/></a>
 
                                 <Button onClick={() => document.documentElement.scrollTop = document.documentElement.scrollHeight} text="Requirements"/>
+                                {FavoriteIcon}
                             </div>
                         </div>
 
