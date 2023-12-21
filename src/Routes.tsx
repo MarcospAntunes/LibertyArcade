@@ -8,6 +8,8 @@ import Login from './pages/Login.tsx'
 import { AuthProvider } from './contexts/auth.tsx'
 import useAuth from './hooks/useAuth.tsx'
 import Register from './pages/Register.tsx'
+import Favorites from './pages/Favorites.tsx'
+import FavoritesProvider from './contexts/favorites.tsx'
 
 function Router(): JSX.Element {
 
@@ -20,15 +22,18 @@ function Router(): JSX.Element {
   return (
     <>
     <AuthProvider>
-      <BrowserRouter>
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/register' element={<Register />} />
-          <Route path='/login' element={<Login />}/>
-          <Route path='/games' element={<Games />}/>
-          <Route path="/game/:title" element={<GameOverview />} />
-        </Routes>
-      </BrowserRouter>
+      <FavoritesProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/register' element={<Register />} />
+            <Route path='/login' element={<Login />}/>
+            <Route path='/games' element={<Games />}/>
+            <Route path="/games/:title" element={<GameOverview />} />
+            <Route path='/favorites' element={<Private Item={Favorites} />}/>
+          </Routes>
+        </BrowserRouter>
+      </FavoritesProvider>
     </AuthProvider>
       
     </>
