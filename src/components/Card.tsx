@@ -7,18 +7,16 @@ import { TfiLayoutSidebarNone } from "react-icons/tfi";
 import { IconType } from "react-icons";
 import { useNavigate } from "react-router-dom";
 
-
 function Card({ id, platform, thumbnail, title}: gameProps): JSX.Element {
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+    
     let PlatormSVG: IconType = TfiLayoutSidebarNone
 
-    if(platform === "PC (Windows)") {
+    if(platform?.includes("Windows")) {
         PlatormSVG = FaWindows
-    } else if(platform === "Web Browser") {
+    } else if(platform?.includes ("Browser")) {
         PlatormSVG = BsBrowserEdge
-    } else if(platform === "PC (Windows), Web Browser") {
-        PlatormSVG = BsBrowserEdge
-    }
+    } 
     
     return(
         <li className="gameCard">
@@ -26,7 +24,7 @@ function Card({ id, platform, thumbnail, title}: gameProps): JSX.Element {
             <h3>{title}</h3>
             <div>
                 <PlatormSVG />
-                <Button text="About" onClick={() => navigate(`/game/${title}`, {state: id })} />
+                <Button text="About" onClick={() => navigate(`/games/${title}`, {state: id })} />
             </div>
         </li>
     )
