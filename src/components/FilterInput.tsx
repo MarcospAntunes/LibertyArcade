@@ -23,7 +23,7 @@ function FilterInput({ name, value, search, setSearch }: FilterInputProps): JSX.
  
    return (
      <li onClick={handleCheckboxClick} id="filterContentContainer">
-       {checkbox} {name}
+       {checkbox} <p>{name}</p>
      </li>
    );
  }
