@@ -41,18 +41,24 @@ function GameOverview(): JSX.Element {
         thumbnail,
       } = gameData || {};
 
-      const FavoriteIcon = isFavorite ? <MdOutlineFavorite className="favorite" id="isFavorite" onClick={() => addFavorite({ id, platform, thumbnail, title })} /> : <MdFavoriteBorder className="favorite" id="noFavorite" onClick={() => addFavorite({ id, platform, thumbnail, title })} />
+      const FavoriteIcon = isFavorite 
+        ?   <MdOutlineFavorite 
+                className="favorite" 
+                id="isFavorite" 
+                onClick={() => addFavorite({ id, platform, thumbnail, title })} 
+            /> 
+        :   <MdFavoriteBorder 
+                className="favorite" 
+                id="noFavorite" 
+                onClick={() => addFavorite({ id, platform, thumbnail, title })} 
+            />
       
     return(
         <>
             <Header back={true}/>
             <main id="mainGamesOverView">
-                <section id="gameSection" style={{backgroundImage: `url(${(photo[0])})`}}>
-                    
-                </section>
-
+                <section id="gameSection" style={{backgroundImage: `url(${(photo[0])})`}} />
                 <section id="gameInfosSection">
-                
                     <div id="gameSectionContent">
                         <div id="containerImgButton">
                             <figure><img src={thumbnail} alt={title} /></figure>
