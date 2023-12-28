@@ -54,7 +54,7 @@ function Games(): JSX.Element {
                     </aside>
                 </div>
                 
-                <div>
+                <div id="gamesContainer">
                     <section id="bannerSection">
                         <Banner />
                     </section>
