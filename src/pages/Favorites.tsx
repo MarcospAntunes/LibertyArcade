@@ -15,21 +15,23 @@ function Favorites(): JSX.Element {
         <>
             <Header back={true} />
             <main id="mainFavorites">
-               {favorite.length > 0 ?
-                    <GamesList>
-                        {favorite.map((game:gameProps) => (
-                            <Card 
-                                key={game.id}
-                                id={game.id}
-                                platform={game.platform}
-                                thumbnail={game.thumbnail}
-                                title={game.title}
-                            />
-                        ))}
-                    </GamesList>
-                :
-                    <h1>No Favorite</h1>
-                }
+               <section>
+                   {favorite.length > 0 ?
+                        <GamesList>
+                            {favorite.map((game:gameProps) => (
+                                <Card
+                                    key={game.id}
+                                    id={game.id}
+                                    platform={game.platform}
+                                    thumbnail={game.thumbnail}
+                                    title={game.title}
+                                />
+                            ))}
+                        </GamesList>
+                    :
+                        <h1>No Favorite</h1>
+                    }
+               </section>
             </main>
         </>
     )
