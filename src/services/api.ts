@@ -1,5 +1,5 @@
 import { gameProps, gamesProps } from "../interfaces/game";
-import { numberToFourHundred, numberToTwo } from "../utils/aleatoryNumber";
+import { numberToFourHundred } from "../utils/aleatoryNumber";
 
 const url = "https://free-to-play-games-database.p.rapidapi.com/api/game";
 
@@ -39,7 +39,7 @@ async function relevanceGame(setGamePhoto: React.Dispatch<React.SetStateAction<s
         const dataId = await responseId.json();
         const responsePhoto = await fetch(`${url}?id=${dataId[numberToFourHundred].id}`, options);
         const dataPhoto = await responsePhoto.json()
-        setGamePhoto(dataPhoto.screenshots[numberToTwo].image)
+        setGamePhoto(dataPhoto.screenshots[0].image)
     } catch (error) {
         console.error("Não foi possível obter dados do jogo ", error);
     }

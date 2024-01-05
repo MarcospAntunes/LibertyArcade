@@ -22,7 +22,7 @@ function FilterInput({ name, value, search, setSearch }: FilterInputProps): JSX.
    const checkbox = filter ? <IoCheckbox /> : <MdCheckBoxOutlineBlank />;
  
    return (
-     <li onClick={handleCheckboxClick} id="filterContentContainer">
+     <li onClick={handleCheckboxClick} className="filterContentContainer">
        {checkbox} <p>{name}</p>
      </li>
    );

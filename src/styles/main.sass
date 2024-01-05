@@ -14,6 +14,17 @@ body
     scroll-behavior: smooth
     overflowX: hidden
 
-a
-    text-decoration: none
+    a
+        text-decoration: none
     
+html
+  ::-webkit-scrollbar
+    width: 5px
+
+  ::-webkit-scrollbar-thumb
+    background-color: variables.$secundary-color
+    border-radius: 6px
+
+  ::-webkit-scrollbar-track
+    background: transparent
+
