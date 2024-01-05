@@ -41,17 +41,17 @@ function Header({back = false}: HeaderProps): JSX.Element {
             </div>
             <nav 
                 style={{ display: menuVisibility ? 'flex' : 'none', visibility: menuVisibility ? 'visible' : 'hidden' }}>
-                <menu id="menuNav">
-                    <div>
+                <ul id="menuNav">
+                    <ul>
                         <li><Link to={"/"}>Home</Link></li>
                         <li><Link to={"/games"}>Games</Link></li>
-                    </div>
+                    </ul>
 
-                    <div className="loginRegister">
+                    <ul className="loginRegister">
                         <li><Link to={"/login"}>Login</Link></li>
                         <li><Link to={"/register"}>Register</Link></li>
-                    </div>
-                </menu>
+                    </ul>
+                </ul>
             </nav>
             <div id="menu-hamburger" onClick={() => openMenu({ menuVisibility, setMenuVisibility})}>
                 <div className="line line1"></div>

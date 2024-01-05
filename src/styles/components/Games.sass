@@ -36,7 +36,7 @@
         & aside
             z-index: 0
 
-        & menu
+        & ul
             list-style: none
             display: flex
             flex-direction: column
@@ -47,6 +47,9 @@
             height: 100%
         
     & #gamesContainer
+        display: flex
+        justify-content: center
+        flex-direction: column
         width: 100vw
 
 @media screen and (min-width: 900px)
@@ -66,11 +69,12 @@
             max-height: 400px
             background: linear-gradient(45deg, #9a9c9a13 70%, #4E3F3B)
 
-        & menu  
+        & ul
             flex-direction: column
             justify-content: center
             align-items: center
             flex-wrap: wrap
+            flex-flow: wrap
 
 @keyframes appear
     0% 

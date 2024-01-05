@@ -8,6 +8,7 @@ header
     align-items: center
     padding: 20px
     z-index: 100
+    top: 0
     width: 100vw
     background-color: variables.$bg-color
 
@@ -32,6 +33,7 @@ header
 
 #userContainer
     @include mixins.flexCenter
+    flex-direction: row
     gap: 10px        
 
 .favorite
@@ -83,11 +85,8 @@ nav
     width: 100%
     height: 100%
 
-    & li:hover
-        border-bottom: 1px solid variables.$secundary-color
-    
-    & div
-        display: flex
+    & ul
+        list-style: none
         @include mixins.flexCenter
         flex-direction: column
         gap: 5px
@@ -96,6 +95,11 @@ nav
         text-decoration: none
         color: variables.$primary-color
         font-size: 20px
+
+    & li:hover
+        border-bottom: 1px solid variables.$secundary-color
+    
+    
 
 #dropDownProfileContainer
     display: flex
@@ -127,12 +131,16 @@ nav
             background: variables.$bg-color
             border-left: 1px solid variables.$secundary-color
             border-top: 1px solid variables.$secundary-color
+        
+        & li + li
+            margin-top: 5px
 
         & li
             font-size: 18px
             & a
                 text-decoration: none
                 color: variables.$primary-color
+            
 
 @media screen and (min-width: 545px)
     header
@@ -155,7 +163,7 @@ nav
         align-items: center
         padding: 0 10px
 
-        & div
+        & ul
             flex-direction: row
             gap: 20px
 

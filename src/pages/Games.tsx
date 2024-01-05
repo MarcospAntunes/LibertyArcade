@@ -40,7 +40,7 @@ function Games(): JSX.Element {
                             }
                         }
                     >
-                        <menu>
+                        <ul>
                                 <FilterInput name="Shooter" value="shooter"  search={search} setSearch={setSearch} />
                                 <FilterInput name="Strategy" value="strategy"  search={search} setSearch={setSearch} />
                                 <FilterInput name="Anime" value="anime"  search={search} setSearch={setSearch} />
@@ -50,7 +50,7 @@ function Games(): JSX.Element {
                                 <FilterInput name="MMORPG" value="mmorpg"  search={search} setSearch={setSearch} />
                                 <FilterInput name="Social" value="social"  search={search} setSearch={setSearch} />
                                 <FilterInput name="Sports" value="sports"  search={search} setSearch={setSearch} />
-                        </menu>     
+                        </ul>     
                     </aside>
                 </div>
                 
