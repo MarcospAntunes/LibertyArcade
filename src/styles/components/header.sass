@@ -91,14 +91,48 @@ nav
         @include mixins.flexCenter
         flex-direction: column
         gap: 5px
-    
-    & .logout
-        display: none
 
     & a
         text-decoration: none
         color: variables.$primary-color
         font-size: 20px
+
+#dropDownProfileContainer
+    display: flex
+    flex-direction: column
+
+    & #dropDownProfile
+        display: flex
+        flex-direction: column
+        gap: 4px
+
+        position: absolute
+        top: 5.8rem
+        right: 1.5rem
+        width: 120px
+        padding: 15px
+        border-radius: 15px
+        background: variables.$bg-color
+        border: 1px solid variables.$secundary-color
+        list-style: none
+
+        &::before
+            content: ''
+            position: absolute
+            top: -0.7rem
+            right: 1.2rem
+            width: 20px
+            height: 20px
+            transform: rotate(45deg)
+            background: variables.$bg-color
+            border-left: 1px solid variables.$secundary-color
+            border-top: 1px solid variables.$secundary-color
+
+        & li
+            font-size: 18px
+            & a
+                text-decoration: none
+                color: variables.$primary-color
 
 @media screen and (min-width: 545px)
     header
@@ -131,6 +165,10 @@ nav
     
     #photoUser
         width: 80px
+    
+    #dropDownProfile
+        top: 8.2rem !important
+        right: 3rem !important
 
 @keyframes appear
     0% 

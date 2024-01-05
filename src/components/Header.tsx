@@ -19,6 +19,7 @@ function Header({back = false}: HeaderProps): JSX.Element {
     const navigete = useNavigate()
     const BackPage = back ? <IoIosArrowBack onClick={() => navigete('/games')} /> : <span></span>
     const { user, logOut }: any = useAuth()
+    const [openProfile, setOpenProfile] = useState(false)
 
     let {name, photoUrl}: any = {}
     let favoriteIcon: ReactElement<any, any>
@@ -32,7 +33,6 @@ function Header({back = false}: HeaderProps): JSX.Element {
         favoriteIcon = <MdFavoriteBorder className="favorite" id="noFavorite" onClick={() => navigete('/login')} />
     }
     
-
     return (
         <header>
             <div id="logoButtonContainer">
@@ -51,9 +51,6 @@ function Header({back = false}: HeaderProps): JSX.Element {
                         <li><Link to={"/login"}>Login</Link></li>
                         <li><Link to={"/register"}>Register</Link></li>
                     </div>
-                    <div className="logout">
-                        <li><Link to={"/"} onClick={() => logOut()}>LogOut</Link></li>
-                    </div>
                 </menu>
             </nav>
             <div id="menu-hamburger" onClick={() => openMenu({ menuVisibility, setMenuVisibility})}>
@@ -64,8 +61,17 @@ function Header({back = false}: HeaderProps): JSX.Element {
             <div id="userContainer">
                 {favoriteIcon}
                 <picture>
-                    <img src={photoUrl === undefined ? defaultUserPhoto : photoUrl} alt={name === undefined ? "New User" : name} id="photoUser" />
+                    <img src={photoUrl === undefined ? defaultUserPhoto : photoUrl} alt={name === undefined ? "New User" : name} id="photoUser" onClick={() => setOpenProfile((prev) => !prev)}/>
                 </picture>
+                {openProfile && user !== undefined &&
+                    <div id="dropDownProfileContainer">
+                        <ul id="dropDownProfile">
+                            <li><Link to='/profile'>Profile</Link></li>
+                            <li><Link to='/settings'>Settings</Link></li>
+                            <li><Link to={"/"} onClick={() => logOut()}>LogOut</Link></li>
+                        </ul>
+                    </div>    
+                } 
             </div>
         </header>
     );
