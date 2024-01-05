@@ -9,8 +9,6 @@ import '../styles/components/Favorites.sass'
 function Favorites(): JSX.Element {
     const { favorite } = useFavorite();
 
-    console.log(favorite.length)
-
     return(
         <>
             <Header back={true} />
