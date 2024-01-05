@@ -10,6 +10,8 @@ import useAuth from './hooks/useAuth.tsx'
 import Register from './pages/Register.tsx'
 import Favorites from './pages/Favorites.tsx'
 import FavoritesProvider from './contexts/favorites.tsx'
+import Profile from './pages/Profile.tsx'
+import Settings from './pages/Settings.tsx'
 
 function Router(): JSX.Element {
 
@@ -31,6 +33,8 @@ function Router(): JSX.Element {
             <Route path='/games' element={<Games />}/>
             <Route path="/games/:title" element={<GameOverview />} />
             <Route path='/favorites' element={<Private Item={Favorites} />}/>
+            <Route path='/profile' element={<Private Item={Profile} />} />
+            <Route path='/settings' element={<Private Item={Settings} />} />
           </Routes>
         </BrowserRouter>
       </FavoritesProvider>
