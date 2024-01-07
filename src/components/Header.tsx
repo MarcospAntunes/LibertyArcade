@@ -34,7 +34,7 @@ function Header({back = false}: HeaderProps): JSX.Element {
     }
     
     return (
-        <header>
+        <header id="headerComponent">
             <div id="logoButtonContainer">
                     <BsJoystick id="logo" onClick={() => navigete("/")} />
                     {BackPage}

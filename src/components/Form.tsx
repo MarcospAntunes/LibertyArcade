@@ -3,7 +3,7 @@ import '../styles/components/Form.sass'
 
 function Form({children}: any): JSX.Element {
     return(
-        <form method="post">
+        <form method="post" id='formLoginRegister'>
             {children}
         </form>
     )
