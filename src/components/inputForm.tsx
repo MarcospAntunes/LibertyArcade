@@ -1,4 +1,4 @@
-import '../styles/components/inputForm.sass'
+import '../styles/components/InputForm.sass'
 
 type inputFormProps = {
     type: React.HTMLInputTypeAttribute

@@ -2,7 +2,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import { ReactElement, useState } from "react";
 import { BsJoystick } from "react-icons/bs";
-import "../styles/components/header.sass";
+import "../styles/components/Header.sass";
 import { openMenu } from "../utils/menuMobile";
 import { IoIosArrowBack } from "react-icons/io"
 import useAuth from "../hooks/useAuth";

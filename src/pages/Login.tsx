@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Link, useNavigate } from "react-router-dom";
 import Form from '../components/Form'
-import InputForm from "../components/inputForm";
+import InputForm from "../components/InputForm";
 import { useState } from "react";
 import useAuth from "../hooks/useAuth";
 import { handleLogin } from "../utils/validFom";

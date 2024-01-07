@@ -1,8 +1,7 @@
 import { useNavigate } from "react-router-dom"
 import Button from "../components/Button"
 import Header from "../components/Header"
-
-import '../styles/components/home.sass'
+import '../styles/components/Home.sass'
 import { BiSolidJoystick } from 'react-icons/bi'
 
 function Home(): JSX.Element {
