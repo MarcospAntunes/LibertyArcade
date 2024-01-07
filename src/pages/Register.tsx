@@ -7,6 +7,7 @@ import useAuth from "../hooks/useAuth";
 import { useState } from "react";
 import { handleRegister } from "../utils/validFom";
 import '../styles/components/Register.sass'
+import ErrorMessage from "../components/ErrorMessage";
 
 function Register() {
     const { register }: any = useAuth()
@@ -65,7 +66,7 @@ function Register() {
                         onClick={(e) => handleRegister({e, email, emailConf, password, passwordConf, name, setError, register, navigate})}
                     />
                 </Form>
-                <p>{error}</p>
+                <ErrorMessage>{error}</ErrorMessage>
                 <p>Alredy have account? <Link to={"/login"}>Click here</Link> and login!</p>
             </FormContainer>
         </main>

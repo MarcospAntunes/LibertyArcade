@@ -7,6 +7,7 @@ import useAuth from "../hooks/useAuth";
 import { handleLogin } from "../utils/validFom";
 import '../styles/components/Login.sass'
 import FormContainer from "../components/formContainer";
+import ErrorMessage from "../components/ErrorMessage";
 
 function Login(): JSX.Element {
     const { login }: any = useAuth()
@@ -41,7 +42,7 @@ function Login(): JSX.Element {
                         onClick={(e) => handleLogin({e, setError, email, password, login, navigate})}
                     />
                 </Form>
-                <p>{error}</p>
+                <ErrorMessage>{error}</ErrorMessage>
                 <p>Don't have an account? <Link to={"/register"}>Click here</Link> and create your account for free!</p>
             </FormContainer>
         </main>
