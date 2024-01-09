@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Home from './pages/Home.tsx'
 import Games from './pages/Games.tsx'
@@ -12,13 +11,18 @@ import Favorites from './pages/Favorites.tsx'
 import FavoritesProvider from './contexts/favorites.tsx'
 import Profile from './pages/Profile.tsx'
 import Settings from './pages/Settings.tsx'
+import authProps from './interfaces/authProps.ts'
+
+type privateProps = {
+  Item: () => JSX.Element
+}
 
 function Router(): JSX.Element {
 
-  const Private = ({Item}: any): JSX.Element => {
-    const { signed }: any = useAuth();
+  const Private = ({Item}: privateProps): JSX.Element => {
+    const { signed }: authProps = useAuth();
   
-    return signed > 0 ? <Item /> : <Login />;
+    return signed! > 0 ? <Item /> : <Login />;
   }
 
   return (

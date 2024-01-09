@@ -1,40 +1,5 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import { NavigateFunction } from "react-router-dom"
-
-type handleChangeFunctionsProps = {
-    event: React.ChangeEvent<HTMLInputElement>
-    setUserData: React.Dispatch<React.SetStateAction<{
-        name: string
-        email: string
-        password: string
-        photoUrl: string | ArrayBuffer | null
-    }>>
-    userData: {
-        name: string
-        email: string
-        password: string
-        photoUrl: string | ArrayBuffer | null
-    }
-}
-
-type saveChangesProps = {
-    userData: {
-        name: string
-        email: string
-        password: string
-        photoUrl: string | ArrayBuffer | null
-    }
-}
-
-type deleteAccountProps = {
-    userData: {
-        name: string
-        email: string
-        password: string
-        photoUrl: string | ArrayBuffer | null
-    }
-    navigate: NavigateFunction
-}
+import userProps from "../interfaces/user";
+import { deleteAccountProps, handleChangeFunctionsProps, saveChangesProps } from "../interfaces/userActionsProps";
 
 function handlePhotoChange({event, userData, setUserData}: handleChangeFunctionsProps) {
     const file = event.target.files![0];
@@ -46,7 +11,7 @@ function handlePhotoChange({event, userData, setUserData}: handleChangeFunctions
             setUserData({...userData, photoUrl});
 
             const userDB = JSON.parse(localStorage.getItem('users_db')!);
-            const updatedUsers = userDB.map((u:any) => u.email === userData.email ? {...u, photoUrl}: u);
+            const updatedUsers = userDB.map((u:userProps) => u.email === userData.email ? {...u, photoUrl}: u);
             localStorage.setItem('users_db', JSON.stringify(updatedUsers));
         };
         reader.readAsDataURL(file);
@@ -63,7 +28,7 @@ function handleInputChange({event, userData, setUserData}: handleChangeFunctions
 
 function saveChanges({userData}: saveChangesProps) {
     const usersDB = JSON.parse(localStorage.getItem('users_db')!)
-    const updatedUsers = usersDB.map((u:any) =>
+    const updatedUsers = usersDB.map((u:userProps) =>
         u.email === userData.email ? userData : u    
     );
     localStorage.setItem('users_db', JSON.stringify(updatedUsers));
@@ -72,7 +37,7 @@ function saveChanges({userData}: saveChangesProps) {
 
 function deleteAccount({userData, navigate}: deleteAccountProps) {
     const usersDB = JSON.parse(localStorage.getItem('users_db')!) || [];
-    const updatedUsers = usersDB.filter((u:any) =>
+    const updatedUsers = usersDB.filter((u:userProps) =>
         u.email !== userData.email
     );
     localStorage.setItem('users_db', JSON.stringify(updatedUsers));

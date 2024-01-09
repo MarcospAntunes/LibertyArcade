@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Link, useNavigate } from "react-router-dom";
 import Form from '../components/Form'
 import InputForm from "../components/InputForm";
@@ -8,9 +7,10 @@ import { handleLogin } from "../utils/validFom";
 import '../styles/components/Login.sass'
 import FormContainer from "../components/formContainer";
 import ErrorMessage from "../components/ErrorMessage";
+import authProps from "../interfaces/authProps";
 
 function Login(): JSX.Element {
-    const { login }: any = useAuth()
+    const { login }: authProps = useAuth()
     const navigate = useNavigate()
 
     const [email, setEmail] = useState("")

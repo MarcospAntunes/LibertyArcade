@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import '../styles/components/ErrorMessage.sass'
 
 type ErrorMessageProps = {

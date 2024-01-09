@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import Card from "../components/Card";
 import GamesList from "../components/GamesList";
 import Header from "../components/Header";

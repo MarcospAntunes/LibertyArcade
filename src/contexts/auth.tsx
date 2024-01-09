@@ -1,26 +1,30 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { createContext, useState, useEffect } from 'react'
+import userProps from '../interfaces/user'
+
+type AuthProviderProps = {
+    children: JSX.Element
+}
 
 export const AuthContext = createContext({})
 
-export const AuthProvider = ({ children }: any) => {
-    const [user, setUser] = useState<any>()
+export const AuthProvider = ({ children }: AuthProviderProps) => {
+    const [user, setUser] = useState<userProps | null>()
 
     useEffect(() => {
         const userToken = localStorage.getItem('user_token')
         const usersStorage = localStorage.getItem('users_db')
 
         if(userToken && usersStorage) {
-            const hasUser = JSON.parse(usersStorage)?.filter((user: any) => user.email === JSON.parse(userToken).email)
+            const hasUser = JSON.parse(usersStorage)?.filter((user: userProps) => user.email === JSON.parse(userToken).email)
 
             if(hasUser) setUser(hasUser[0])
         }
     }, [])
 
-    const login = (email: string, password: any) => {
+    const login = (email: string, password: string) => {
         const usersStorage = JSON.parse(localStorage.getItem('users_db')!)
         
-        const hasUser = usersStorage?.filter((user: any) => user.email === email)
+        const hasUser = usersStorage?.filter((user: userProps) => user.email === email)
 
         if(hasUser?.length) {
             if(hasUser[0].email === email && hasUser[0].password === password) {
@@ -35,9 +39,9 @@ export const AuthProvider = ({ children }: any) => {
         }
     }
 
-    const register = (name: string, email: string, password: any) => {
+    const register = (name: string, email: string, password: string) => {
         const usersStorage = JSON.parse(localStorage.getItem('users_db')!)
-        const hasUser = usersStorage?.filter((user: any) => user.email === email)
+        const hasUser = usersStorage?.filter((user: userProps) => user.email === email)
 
         if(hasUser?.length) {
             return "There is an account with that email address!"

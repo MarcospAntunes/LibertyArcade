@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useLocation } from "react-router-dom"
 import { gameProps } from "../interfaces/game";
 import { useEffect, useState } from "react";
@@ -15,7 +14,7 @@ function GameOverview(): JSX.Element {
     const { favorite, addFavorite } = useFavorite()
 
     const id: number = location.state;
-    const isFavorite = favorite.some((fav: any) => fav.id === id)
+    const isFavorite = favorite.some((fav: gameProps) => fav.id === id)
 
     useEffect(() => {
         fetchDataGame({setGameData, id});

@@ -6,10 +6,12 @@ import { IoMdArrowBack } from "react-icons/io";
 import { deleteAccount, handleInputChange, handlePhotoChange, saveChanges } from '../utils/userActions';
 import { useNavigate } from 'react-router-dom';
 import defaultPhoto from '../assets/images/defaultUserPhoto.jpg'
+import userProps from '../interfaces/user';
+import authProps from '../interfaces/authProps';
 
 function Profile(): JSX.Element {
-    const { user }: any = useAuth();
-    const { name, email, password, photoUrl } = user;
+    const { user }: authProps = useAuth();
+    const { name, email, password, photoUrl }: userProps | any = user;
     const [userData, setUserData] = useState({
         name,
         email,

@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Link, useNavigate } from "react-router-dom";
 import Form from "../components/Form";
 import FormContainer from "../components/formContainer";
@@ -8,9 +7,10 @@ import { useState } from "react";
 import { handleRegister } from "../utils/validFom";
 import '../styles/components/Register.sass'
 import ErrorMessage from "../components/ErrorMessage";
+import authProps from "../interfaces/authProps";
 
 function Register() {
-    const { register }: any = useAuth()
+    const { register }: authProps = useAuth()
     const navigate = useNavigate()
 
     const [name, setName] = useState("")

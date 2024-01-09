@@ -1,7 +1,10 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import '../styles/components/FormContainer.sass'
 
-function FormContainer({children}: any): JSX.Element {
+type FormContainerProps = {
+    children: JSX.Element[]
+}
+
+function FormContainer({children}: FormContainerProps): JSX.Element {
     return(
         <section id='formContainer'>
             {children}

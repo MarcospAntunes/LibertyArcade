@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-
 function switchActionsUser() {
     const loginRegister: HTMLDivElement | null = document.querySelector(".loginRegister");
 
