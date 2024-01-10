@@ -23,6 +23,7 @@ type saveChangesProps = {
         password: string
         photoUrl: string | ArrayBuffer | null
     }
+    navigate: NavigateFunction
 }
 
 type deleteAccountProps = {

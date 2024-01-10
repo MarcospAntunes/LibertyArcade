@@ -26,12 +26,14 @@ function handleInputChange({event, userData, setUserData}: handleChangeFunctions
     });
 }
 
-function saveChanges({userData}: saveChangesProps) {
+function saveChanges({userData, navigate}: saveChangesProps) {
     const usersDB = JSON.parse(localStorage.getItem('users_db')!)
     const updatedUsers = usersDB.map((u:userProps) =>
         u.email === userData.email ? userData : u    
     );
     localStorage.setItem('users_db', JSON.stringify(updatedUsers));
+
+    navigate('/games');
     window.location.reload();
 }
 

@@ -74,7 +74,7 @@ function Profile(): JSX.Element {
                             <input
                                 type='submit'
                                 value='Save'
-                                onClick={() => saveChanges({userData})}
+                                onClick={() => saveChanges({userData, navigate})}
                                 className='buttonChangeEvent'
                             />              
                         </form>
