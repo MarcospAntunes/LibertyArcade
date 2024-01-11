@@ -4,7 +4,7 @@ import { useState } from "react";
 import useAuth from "../hooks/useAuth";
 import { handleLogin } from "../utils/validFom";
 import '../styles/components/Login.sass'
-import FormContainer from "../components/formContainer";
+import FormContainer from "../components/FormContainer";
 import ErrorMessage from "../components/ErrorMessage";
 import authProps from "../interfaces/authProps";
 import InputForm from "../components/InputForm";

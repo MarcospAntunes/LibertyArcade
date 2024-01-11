@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import Form from "../components/Form";
-import FormContainer from "../components/formContainer";
+import FormContainer from "../components/FormContainer";
 import useAuth from "../hooks/useAuth";
 import { useState } from "react";
 import { handleRegister } from "../utils/validFom";
