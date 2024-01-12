@@ -113,9 +113,13 @@
         & #conteinerButtons
             @include mixins.flexCenter
             flex-wrap: wrap
-            gap: 10px 
+            gap: 10px
 
-            & button
+            & a
+                @include mixins.btn
+                font-size: 16px 
+
+            & button, a
                 min-width: 100px
     
 

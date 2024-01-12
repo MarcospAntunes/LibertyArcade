@@ -62,7 +62,7 @@ function GameOverview(): JSX.Element {
                         <div id="containerImgButton">
                             <figure><img src={thumbnail} alt={title} /></figure>
                             <div id="conteinerButtons">
-                                <a href={game_url} target="_blank"><Button onClick={() => ""} text="Play"/></a>
+                                <a href={game_url} target="_blank">Play</a>
 
                                 <Button onClick={() => document.documentElement.scrollTop = document.documentElement.scrollHeight} text="Requirements"/>
                                 {FavoriteIcon}
