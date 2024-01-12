@@ -1,0 +1,29 @@
+@use '../mixins'
+@use '../variables'
+
+#paginationNav
+    @include mixins.flexCenter
+    margin: 10px
+
+    & ul
+        @include mixins.flexCenter
+        gap: 5px
+        flex-wrap: wrap
+        list-style: none
+
+        & li > button
+            width: 22px
+            height: 22px
+            border: none
+            border-radius: 50%
+            color: variables.$primary-color
+            cursor: pointer
+
+
+
+@media screen and (min-width: 501px)
+    #paginationNav
+        & ul > li > button
+            width: 40px
+            height: 40px
+            

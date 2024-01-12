@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react"
+import { SetStateAction, useEffect, useRef, useState } from "react"
 import Header from "../components/Header"
 import FilterInput from "../components/FilterInput"
 import { filterGames } from "../utils/filterGamesFunction"
@@ -10,6 +10,7 @@ import '../styles/components/Games.sass'
 import { FaFilter } from "react-icons/fa6";
 import openFilter from "../utils/menuFilter"
 import Banner from "../components/Banner"
+import Pagination from "../components/Pagination"
 
 
 function Games(): JSX.Element {
@@ -17,12 +18,22 @@ function Games(): JSX.Element {
     const [ search, setSearch ] = useState<string[]>([])
     const filtredGames = useRef<Array<gamesProps>>([])
     const [ filterVisibility, setFilterVisibility ] = useState(false)
+    const [currentPage, setCurrentPage] = useState<SetStateAction<string | number>>(1);
+    const gamesPerPage = 15;
+
+    const indexOfLastGame = Number(currentPage) * gamesPerPage;
+    const indexOfFirstGame = indexOfLastGame - gamesPerPage;
+    const currentGames = games.slice(indexOfFirstGame, indexOfLastGame)
+
+    const onPageChange = (pageNumber: string | number) => {
+        setCurrentPage(pageNumber);
+    }
 
     useEffect(() => {
         fetchDataGames({ setGames })
     }, [])
 
-    filterGames({ search, filtredGames, games }) 
+    filterGames({ search, filtredGames, currentGames }) 
 
     return (
         <>
@@ -74,6 +85,11 @@ function Games(): JSX.Element {
                                 />
                             ))}
                         </GamesList>
+                        <Pagination
+                            currentPage={Number(currentPage)}
+                            totalPages={Math.ceil(games.length / gamesPerPage)}
+                            onPageChange={onPageChange}
+                        />
                     </section>
                 </div>
             </main>
