@@ -27,7 +27,7 @@ function handleInputChange({event, userData, setUserData}: handleChangeFunctions
 }
 
 function saveChanges({userData, navigate}: saveChangesProps) {
-    const usersDB = JSON.parse(localStorage.getItem('users_db')!)
+    const usersDB = JSON.parse(localStorage.getItem('users_db')!);
     const updatedUsers = usersDB.map((u:userProps) =>
         u.email === userData.email ? userData : u    
     );
@@ -49,4 +49,4 @@ function deleteAccount({userData, navigate}: deleteAccountProps) {
 }
 
 
-export {handlePhotoChange, handleInputChange, saveChanges, deleteAccount}
+export {handlePhotoChange, handleInputChange, saveChanges, deleteAccount};

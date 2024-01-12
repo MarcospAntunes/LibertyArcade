@@ -24,7 +24,7 @@ function calculateVisiblePages({totalPages, currentPage, maxPagesToShow}: Calcul
 
     if(upperBound < totalPages) {
         if(upperBound < totalPages - 1) {
-            visiblePages.push('...')
+            visiblePages.push('...');
         }
         visiblePages.push(totalPages);
     }

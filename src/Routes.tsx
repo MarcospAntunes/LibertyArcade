@@ -24,7 +24,7 @@ function Router(): JSX.Element {
     const { signed }: authProps = useAuth();
   
     return signed! > 0 ? <Item /> : <Login />;
-  }
+  };
 
   return (
     <>
@@ -50,4 +50,4 @@ function Router(): JSX.Element {
   )
 }
 
-export default Router
+export default Router;

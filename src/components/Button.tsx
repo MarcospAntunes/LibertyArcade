@@ -11,4 +11,4 @@ function Button({text, onClick}: ButtonProps): JSX.Element {
     )
 }
 
-export default Button
+export default Button;

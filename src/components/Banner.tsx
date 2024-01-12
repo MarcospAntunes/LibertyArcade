@@ -3,13 +3,13 @@ import { fetchPhotoGame } from "../services/fetchData"
 import "../styles/components/Banner.sass"
 
 function Banner(): JSX.Element {
-    const [ gamePhoto, setGamePhoto ] = useState("")
+    const [ gamePhoto, setGamePhoto ] = useState("");
 
     useEffect(() => {
         fetchPhotoGame({ setGamePhoto })
-    }, [])
+    }, []);
 
-    const noPhoto = gamePhoto === "" ? "Error when searching for image" : ""
+    const noPhoto = gamePhoto === "" ? "Error when searching for image" : "";
     
     return(
         <div style={{backgroundImage: `url(${gamePhoto})`}} id="bannerPhoto">
@@ -19,4 +19,4 @@ function Banner(): JSX.Element {
 }
 
 
-export default Banner
+export default Banner;

@@ -10,15 +10,15 @@ import authProps from "../interfaces/authProps";
 import InputForm from "../components/InputForm";
 
 function Register() {
-    const { register }: authProps = useAuth()
-    const navigate = useNavigate()
+    const { register }: authProps = useAuth();
+    const navigate = useNavigate();
 
-    const [name, setName] = useState("")
-    const [email, setEmail] = useState("")
-    const [emailConf, setEmailConf] = useState("")
-    const [password, setPassword] = useState("")
-    const [passwordConf, setPasswordConf] = useState("")
-    const [error, setError] = useState("")
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [emailConf, setEmailConf] = useState("");
+    const [password, setPassword] = useState("");
+    const [passwordConf, setPasswordConf] = useState("");
+    const [error, setError] = useState("");
 
     return(
         <main id="mainRegister">

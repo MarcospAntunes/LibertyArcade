@@ -12,4 +12,4 @@ function FormContainer({children}: FormContainerProps): JSX.Element {
     )
 }
 
-export default FormContainer
+export default FormContainer;

@@ -5,7 +5,7 @@ import '../styles/components/Home.sass'
 import { BiSolidJoystick } from 'react-icons/bi'
 
 function Home(): JSX.Element {
-    const navigate = useNavigate()
+    const navigate = useNavigate();
 
     return(
         <>
@@ -31,4 +31,4 @@ function Home(): JSX.Element {
 }
     
 
-export default Home
+export default Home;

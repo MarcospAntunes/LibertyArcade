@@ -10,12 +10,12 @@ import { useNavigate } from "react-router-dom";
 function Card({ id, platform, thumbnail, title}: gameProps): JSX.Element {
     const navigate = useNavigate();
     
-    let PlatormSVG: IconType = TfiLayoutSidebarNone
+    let PlatormSVG: IconType = TfiLayoutSidebarNone;
 
     if(platform?.includes("Windows")) {
-        PlatormSVG = FaWindows
+        PlatormSVG = FaWindows;
     } else if(platform?.includes ("Browser")) {
-        PlatormSVG = BsBrowserEdge
+        PlatormSVG = BsBrowserEdge;
     } 
     
     return(
@@ -31,4 +31,4 @@ function Card({ id, platform, thumbnail, title}: gameProps): JSX.Element {
 }
 
 
-export default Card
+export default Card;

@@ -16,18 +16,18 @@ type HeaderProps = {
 
 function Header({back = false}: HeaderProps): JSX.Element {
     const [menuVisibility, setMenuVisibility] = useState(false);
-    const navigete = useNavigate()
-    const BackPage = back ? <IoIosArrowBack onClick={() => navigete('/games')} /> : <span></span>
-    const { user, logOut }: any = useAuth()
-    const [openProfile, setOpenProfile] = useState(false)
+    const navigete = useNavigate();
+    const BackPage = back ? <IoIosArrowBack onClick={() => navigete('/games')} /> : <span></span>;
+    const { user, logOut }: any = useAuth();
+    const [openProfile, setOpenProfile] = useState(false);
 
-    let {name, photoUrl}: any = {}
-    let favoriteIcon: ReactElement<any, any>
+    let {name, photoUrl}: any = {};
+    let favoriteIcon: ReactElement<any, any>;
 
     if(user !== undefined) {
-        name = user.name
-        photoUrl = user.photoUrl
-        switchActionsUser()
+        name = user.name;
+        photoUrl = user.photoUrl;
+        switchActionsUser();
         favoriteIcon = <MdOutlineFavorite className="favorite" id="isFavorite" onClick={() => navigete('/favorites')} />
     } else {
         favoriteIcon = <MdFavoriteBorder className="favorite" id="noFavorite" onClick={() => navigete('/login')} />

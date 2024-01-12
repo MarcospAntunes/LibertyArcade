@@ -11,10 +11,10 @@ import { MdFavoriteBorder, MdOutlineFavorite } from "react-icons/md";
 function GameOverview(): JSX.Element {
     const location = useLocation();
     const [gameData, setGameData] = useState<gameProps>({});
-    const { favorite, addFavorite } = useFavorite()
+    const { favorite, addFavorite } = useFavorite();
 
     const id: number = location.state;
-    const isFavorite = favorite.some((fav: gameProps) => fav.id === id)
+    const isFavorite = favorite.some((fav: gameProps) => fav.id === id);
 
     useEffect(() => {
         fetchDataGame({setGameData, id});
@@ -50,7 +50,7 @@ function GameOverview(): JSX.Element {
                 className="favorite" 
                 id="noFavorite" 
                 onClick={() => addFavorite({ id, platform, thumbnail, title })} 
-            />
+            />;
       
     return(
         <>
@@ -116,4 +116,4 @@ function GameOverview(): JSX.Element {
     )
 }
 
-export default GameOverview
+export default GameOverview;

@@ -10,12 +10,12 @@ import authProps from "../interfaces/authProps";
 import InputForm from "../components/InputForm";
 
 function Login(): JSX.Element {
-    const { login }: authProps = useAuth()
-    const navigate = useNavigate()
+    const { login }: authProps = useAuth();
+    const navigate = useNavigate();
 
-    const [email, setEmail] = useState("")
-    const [password, setPassword] = useState("")
-    const [error, setError] = useState("")
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [error, setError] = useState("");
 
     return(
         <main id="mainLogin">

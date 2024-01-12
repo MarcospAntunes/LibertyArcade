@@ -20,7 +20,7 @@ function filterGenreFunction({ filter, setFilter, value, search, setSearch }: Fi
      : [...search, value];
  
    setSearch(updatedSearch);
-   setFilter(!filter)
+   setFilter(!filter);
 }
 
 function filterGames({ search, filtredGames, currentGames }: filterGamesProps) {
@@ -30,7 +30,7 @@ function filterGames({ search, filtredGames, currentGames }: filterGamesProps) {
   );
   
   } else {
-    filtredGames.current = currentGames
+    filtredGames.current = currentGames;
   }
 
   return filtredGames

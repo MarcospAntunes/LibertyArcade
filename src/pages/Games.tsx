@@ -14,26 +14,26 @@ import Pagination from "../components/Pagination"
 
 
 function Games(): JSX.Element {
-    const [ games, setGames ] = useState<gamesProps[]>([])
-    const [ search, setSearch ] = useState<string[]>([])
-    const filtredGames = useRef<Array<gamesProps>>([])
-    const [ filterVisibility, setFilterVisibility ] = useState(false)
+    const [ games, setGames ] = useState<gamesProps[]>([]);
+    const [ search, setSearch ] = useState<string[]>([]);
+    const filtredGames = useRef<Array<gamesProps>>([]);
+    const [ filterVisibility, setFilterVisibility ] = useState(false);
     const [currentPage, setCurrentPage] = useState<SetStateAction<string | number>>(1);
     const gamesPerPage = 15;
 
     const indexOfLastGame = Number(currentPage) * gamesPerPage;
     const indexOfFirstGame = indexOfLastGame - gamesPerPage;
-    const currentGames = games.slice(indexOfFirstGame, indexOfLastGame)
+    const currentGames = games.slice(indexOfFirstGame, indexOfLastGame);
 
     const onPageChange = (pageNumber: string | number) => {
         setCurrentPage(pageNumber);
-    }
+    };
 
     useEffect(() => {
         fetchDataGames({ setGames })
-    }, [])
+    }, []);
 
-    filterGames({ search, filtredGames, currentGames }) 
+    filterGames({ search, filtredGames, currentGames }); 
 
     return (
         <>
@@ -98,4 +98,4 @@ function Games(): JSX.Element {
     )
 }
 
-export default Games
+export default Games;

@@ -9,4 +9,4 @@ function ErrorMessage({children}: ErrorMessageProps): JSX.Element {
     )
 }
 
-export default ErrorMessage
+export default ErrorMessage;

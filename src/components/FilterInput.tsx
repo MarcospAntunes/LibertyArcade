@@ -29,4 +29,4 @@ function FilterInput({ name, value, search, setSearch }: FilterInputProps): JSX.
  }
  
 
-export default FilterInput
+export default FilterInput;
