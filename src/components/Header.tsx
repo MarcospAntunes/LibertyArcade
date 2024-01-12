@@ -39,7 +39,7 @@ function Header({back = false}: HeaderProps): JSX.Element {
                     <BsJoystick id="logo" onClick={() => navigete("/")} />
                     {BackPage}
             </div>
-            <nav 
+            <nav id="headerNav" 
                 style={{ display: menuVisibility ? 'flex' : 'none', visibility: menuVisibility ? 'visible' : 'hidden' }}>
                 <ul id="menuNav">
                     <ul>
