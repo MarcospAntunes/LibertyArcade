@@ -11,7 +11,7 @@ type FilterGenreFunctionProps = {
 type filterGamesProps = {
   search: string[];
   filtredGames: React.MutableRefObject<object[]>
-  currentGames: object[]
+  games: object[]
 }
  
 function filterGenreFunction({ filter, setFilter, value, search, setSearch }: FilterGenreFunctionProps): void {
@@ -23,14 +23,14 @@ function filterGenreFunction({ filter, setFilter, value, search, setSearch }: Fi
    setFilter(!filter);
 }
 
-function filterGames({ search, filtredGames, currentGames }: filterGamesProps) {
+function filterGames({ search, filtredGames, games }: filterGamesProps) {
   if (search.length > 0) {
-      filtredGames.current = (currentGames as gameProps[]).filter((game: gameProps) =>
+      filtredGames.current = (games as gameProps[]).filter((game: gameProps) =>
     search.includes(game.genre!.toLowerCase())
   );
   
   } else {
-    filtredGames.current = currentGames;
+    filtredGames.current = games;
   }
 
   return filtredGames

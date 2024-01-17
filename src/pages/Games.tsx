@@ -20,10 +20,9 @@ function Games(): JSX.Element {
     const [ filterVisibility, setFilterVisibility ] = useState(false);
     const [currentPage, setCurrentPage] = useState<SetStateAction<string | number>>(1);
     const gamesPerPage = 15;
-
-    const indexOfLastGame = Number(currentPage) * gamesPerPage;
-    const indexOfFirstGame = indexOfLastGame - gamesPerPage;
-    const currentGames = games.slice(indexOfFirstGame, indexOfLastGame);
+    const [indexOfLastGame, setIndexOfLastGame] = useState(0)
+    const [indexOfFirstGame, setIndexOfFirstGame] = useState(0)
+    const [currentGames, setCurrentGames] = useState<gamesProps[]>([])
 
     const onPageChange = (pageNumber: string | number) => {
         setCurrentPage(pageNumber);
@@ -33,7 +32,14 @@ function Games(): JSX.Element {
         fetchDataGames({ setGames })
     }, []);
 
-    filterGames({ search, filtredGames, currentGames }); 
+    filterGames({ search, filtredGames, games }); 
+    console.log(filtredGames)
+
+    useEffect(() => {
+        setIndexOfLastGame(Number(currentPage) * gamesPerPage)
+        setIndexOfFirstGame(indexOfLastGame - gamesPerPage)
+        setCurrentGames(filtredGames.current.slice(indexOfFirstGame, indexOfLastGame))
+    })
 
     return (
         <>
@@ -70,7 +76,7 @@ function Games(): JSX.Element {
                     </section>
                     <section>
                         <GamesList>
-                            {filtredGames.current.map((game: gamesProps) => (
+                            {currentGames.map((game: gamesProps) => (
                                  <Card
                                     key={game.id} 
                                     developer = {game.developer}
@@ -87,7 +93,7 @@ function Games(): JSX.Element {
                         </GamesList>
                         <Pagination
                             currentPage={Number(currentPage)}
-                            totalPages={Math.ceil(games.length / gamesPerPage)}
+                            totalPages={Math.ceil(filtredGames.current.length / gamesPerPage)}
                             onPageChange={onPageChange}
                         />
                     </section>

@@ -10,7 +10,7 @@ type RenderPageNumbersProps = {
 };
 
 function RenderPageNumbers({ totalPages, maxPagesToShow, currentPage, onPageChange }: RenderPageNumbersProps): any {
-    if (totalPages <= maxPagesToShow) {
+    if (totalPages <= 0) {
         return Array.from({ length: totalPages }, (_, index) => index + 1);
     } else {
         const visiblePages = calculateVisiblePages({ totalPages, currentPage, maxPagesToShow });
