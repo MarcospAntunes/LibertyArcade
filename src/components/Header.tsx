@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Link, useNavigate } from "react-router-dom";
-import { ReactElement, useState } from "react";
+import { ReactElement, useEffect, useRef, useState } from "react";
 import { BsJoystick } from "react-icons/bs";
 import "../styles/components/Header.sass";
 import { openMenu } from "../utils/menuMobile";
@@ -20,18 +20,20 @@ function Header({back = false}: HeaderProps): JSX.Element {
     const BackPage = back ? <IoIosArrowBack onClick={() => navigete('/games')} /> : <span></span>;
     const { user, logOut }: any = useAuth();
     const [openProfile, setOpenProfile] = useState(false);
+    const [favoriteIcon, setFavoriteIcon] = useState<ReactElement<any, any>>()
+    const name = useRef<string>("");
+    const photoUrl = useRef<string>("");
 
-    let {name, photoUrl}: any = {};
-    let favoriteIcon: ReactElement<any, any>;
-
-    if(user !== undefined) {
-        name = user.name;
-        photoUrl = user.photoUrl;
-        switchActionsUser();
-        favoriteIcon = <MdOutlineFavorite className="favorite" id="isFavorite" onClick={() => navigete('/favorites')} />
-    } else {
-        favoriteIcon = <MdFavoriteBorder className="favorite" id="noFavorite" onClick={() => navigete('/login')} />
-    }
+    useEffect(() => {
+        if(user !== undefined) {
+            name.current = user.name;
+            photoUrl.current = user.photoUrl;
+            switchActionsUser();
+            setFavoriteIcon(<MdOutlineFavorite className="favorite" id="isFavorite" onClick={() => navigete('/favorites')} />)
+        } else {
+            setFavoriteIcon(<MdFavoriteBorder className="favorite" id="noFavorite" onClick={() => navigete('/login')} />)
+        }
+    }, [navigete, user])
     
     return (
         <header id="headerComponent">
@@ -61,7 +63,7 @@ function Header({back = false}: HeaderProps): JSX.Element {
             <div id="userContainer">
                 {favoriteIcon}
                 <picture>
-                    <img src={photoUrl === undefined ? defaultUserPhoto : photoUrl} alt={name === undefined ? "New User" : name} id="photoUser" onClick={() => setOpenProfile((prev) => !prev)}/>
+                    <img src={photoUrl.current === undefined ? defaultUserPhoto : photoUrl.current} alt={name.current === undefined ? "New User" : name.current} id="photoUser" onClick={() => setOpenProfile((prev) => !prev)}/>
                 </picture>
                 {openProfile && user !== undefined &&
                     <div id="dropDownProfileContainer">
