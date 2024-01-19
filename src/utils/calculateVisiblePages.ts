@@ -1,12 +1,12 @@
 type CalculateVisiblePages = {
     totalPages: number
-    currentPage: number 
+    currentPageNumber: number 
     maxPagesToShow: number
 }
 
-function calculateVisiblePages({totalPages, currentPage, maxPagesToShow}: CalculateVisiblePages): (string | number)[] {
+function calculateVisiblePages({totalPages, currentPageNumber, maxPagesToShow}: CalculateVisiblePages): (string | number)[] {
     const halfmaxPagesToShow = Math.floor(maxPagesToShow / 2);
-    const lowerBound = Math.max(1, currentPage - halfmaxPagesToShow);
+    const lowerBound = Math.max(1, currentPageNumber - halfmaxPagesToShow);
     const upperBound = Math.min(totalPages, lowerBound + maxPagesToShow - 1);
 
     const visiblePages = [];

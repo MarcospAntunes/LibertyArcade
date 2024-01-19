@@ -1,4 +1,4 @@
-import { gameProps } from "../interfaces/game";
+import { gameProps, gamesProps } from "../interfaces/game";
 
 type FilterGenreFunctionProps = {
    filter: boolean;
@@ -10,7 +10,7 @@ type FilterGenreFunctionProps = {
 
 type filterGamesProps = {
   search: string[];
-  filtredGames: React.MutableRefObject<object[]>
+  setFiltredGames: React.Dispatch<React.SetStateAction<gamesProps[]>>
   games: object[]
 }
  
@@ -23,17 +23,18 @@ function filterGenreFunction({ filter, setFilter, value, search, setSearch }: Fi
    setFilter(!filter);
 }
 
-function filterGames({ search, filtredGames, games }: filterGamesProps) {
+function filterGames({ search, setFiltredGames, games }: filterGamesProps) {
   if (search.length > 0) {
-      filtredGames.current = (games as gameProps[]).filter((game: gameProps) =>
-    search.includes(game.genre!.toLowerCase())
-  );
+    const filtredGames = (games: gameProps[]) =>
+    games.filter((game: gameProps) =>
+      game.genre && search.includes(game.genre.toLowerCase()))
+    setFiltredGames(filtredGames(games))
   
   } else {
-    filtredGames.current = games;
+    setFiltredGames(games);
   }
 
-  return filtredGames
+  return setFiltredGames
 }
 
 

@@ -1,19 +1,20 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
+import usePagination from "../hooks/usePagination";
 import calculateVisiblePages from "../utils/calculateVisiblePages";
 
 type RenderPageNumbersProps = {
     totalPages: number;
-    maxPagesToShow: number;
-    currentPage: number;
-    onPageChange: (pageNumber: number) => void;
 };
 
-function RenderPageNumbers({ totalPages, maxPagesToShow, currentPage, onPageChange }: RenderPageNumbersProps): any {
+function RenderPageNumbers({ totalPages }: RenderPageNumbersProps): any {
+    const {currentPage, maxPagesToShow, onPageChange } = usePagination();
+    const currentPageNumber = Number(currentPage);
+
     if (totalPages <= 0) {
         return Array.from({ length: totalPages }, (_, index) => index + 1);
     } else {
-        const visiblePages = calculateVisiblePages({ totalPages, currentPage, maxPagesToShow });
+        const visiblePages = calculateVisiblePages({ totalPages, currentPageNumber, maxPagesToShow });
 
         return visiblePages.map((pageNumber: string | number) => (
             pageNumber === '...' ? 
@@ -25,7 +26,7 @@ function RenderPageNumbers({ totalPages, maxPagesToShow, currentPage, onPageChan
                         onPageChange(Number(pageNumber));
                         document.documentElement.scrollTop = -document.documentElement.scrollHeight;
                     }}
-                    style={{backgroundColor: currentPage === pageNumber ? 'white' : '#e58e27', color: currentPage === pageNumber ? 'black' : '#fbfbfb'}}
+                    style={{backgroundColor: currentPageNumber === pageNumber ? 'white' : '#e58e27', color: currentPageNumber === pageNumber ? 'black' : '#fbfbfb'}}
                 >
                     {pageNumber}
                 </button>

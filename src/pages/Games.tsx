@@ -1,4 +1,4 @@
-import { SetStateAction, useEffect, useRef, useState } from "react"
+import { useEffect, useState } from "react"
 import Header from "../components/Header"
 import FilterInput from "../components/FilterInput"
 import { filterGames } from "../utils/filterGamesFunction"
@@ -11,35 +11,25 @@ import { FaFilter } from "react-icons/fa6";
 import openFilter from "../utils/menuFilter"
 import Banner from "../components/Banner"
 import Pagination from "../components/Pagination"
-
+import usePagination from "../hooks/usePagination"
 
 function Games(): JSX.Element {
     const [ games, setGames ] = useState<gamesProps[]>([]);
     const [ search, setSearch ] = useState<string[]>([]);
-    const filtredGames = useRef<Array<gamesProps>>([]);
+    const [filtredGames, setFiltredGames] = useState<Array<gamesProps>>([]);
     const [ filterVisibility, setFilterVisibility ] = useState(false);
-    const [currentPage, setCurrentPage] = useState<SetStateAction<string | number>>(1);
-    const gamesPerPage = 15;
-    const [indexOfLastGame, setIndexOfLastGame] = useState(0)
-    const [indexOfFirstGame, setIndexOfFirstGame] = useState(0)
-    const [currentGames, setCurrentGames] = useState<gamesProps[]>([])
-
-    const onPageChange = (pageNumber: string | number) => {
-        setCurrentPage(pageNumber);
-    };
+    const { 
+        gamesPerPage, 
+        currentGames,   
+    } = usePagination(filtredGames);
 
     useEffect(() => {
         fetchDataGames({ setGames })
     }, []);
 
-    filterGames({ search, filtredGames, games }); 
-    console.log(filtredGames)
-
     useEffect(() => {
-        setIndexOfLastGame(Number(currentPage) * gamesPerPage)
-        setIndexOfFirstGame(indexOfLastGame - gamesPerPage)
-        setCurrentGames(filtredGames.current.slice(indexOfFirstGame, indexOfLastGame))
-    })
+        filterGames({ search, setFiltredGames, games });
+    }, [search, games])
 
     return (
         <>
@@ -76,7 +66,7 @@ function Games(): JSX.Element {
                     </section>
                     <section>
                         <GamesList>
-                            {currentGames.map((game: gamesProps) => (
+                            {currentGames?.map((game: gamesProps) => (
                                  <Card
                                     key={game.id} 
                                     developer = {game.developer}
@@ -92,9 +82,7 @@ function Games(): JSX.Element {
                             ))}
                         </GamesList>
                         <Pagination
-                            currentPage={Number(currentPage)}
-                            totalPages={Math.ceil(filtredGames.current.length / gamesPerPage)}
-                            onPageChange={onPageChange}
+                            totalPages={Math.ceil(filtredGames.length / gamesPerPage)}
                         />
                     </section>
                 </div>
