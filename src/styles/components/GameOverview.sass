@@ -70,10 +70,11 @@
         & #aboutGame   
             @include mixins.flexCenter
             flex-wrap: wrap
+            gap: 20px
             text-align: center
             
         & h3 
-            width: 100%
+            width: 150px
             text-align: center
 
         & h3::last-child
@@ -81,11 +82,13 @@
 
         & p
             text-align: center
-            width: 150px
+            width: 100%
         
         & #containerGenreData
             @include mixins.flexCenter
+            flex-direction: column
             flex-wrap: wrap
+            gap: 20px
     
     & #systemRequirements
         display: flex
@@ -121,7 +124,11 @@
 
             & button, a
                 min-width: 100px
-    
+
+
+@media screen and (min-width: 501px)
+    #gameSectionContent aside #containerGenreData
+        flex-direction: row
 
 
     
