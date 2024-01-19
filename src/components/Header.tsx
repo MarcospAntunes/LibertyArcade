@@ -1,14 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Link, useNavigate } from "react-router-dom";
-import { ReactElement, useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
+import { useState } from "react";
 import { BsJoystick } from "react-icons/bs";
 import "../styles/components/Header.sass";
 import { openMenu } from "../utils/menuMobile";
 import { IoIosArrowBack } from "react-icons/io"
-import useAuth from "../hooks/useAuth";
-import { MdFavoriteBorder, MdOutlineFavorite } from "react-icons/md";
-import defaultUserPhoto from '../assets/images/defaultUserPhoto.jpg'
-import switchActionsUser from "../utils/switchActionsUser";
+import useUserSwitchActions from "../hooks/useUserSwitchActions";
 
 type HeaderProps = {
     back?: boolean
@@ -16,26 +13,17 @@ type HeaderProps = {
 
 function Header({back = false}: HeaderProps): JSX.Element {
     const [menuVisibility, setMenuVisibility] = useState(false);
-    const navigete = useNavigate();
-    const BackPage = back ? <IoIosArrowBack onClick={() => navigete('/games')} /> : <span></span>;
-    const { user, logOut }: any = useAuth();
     const [openProfile, setOpenProfile] = useState(false);
-    const [favoriteIcon, setFavoriteIcon] = useState<ReactElement<any, any>>()
-    const name = useRef<string>("");
-    const photoUrl = useRef<string>("");
+    const { 
+        favoriteIcon, 
+        user, 
+        logOut, 
+        name, 
+        photoUrl, 
+        navigete 
+    } = useUserSwitchActions();
 
-    useEffect(() => {
-        if(user !== undefined) {
-            name.current = user.name;
-            photoUrl.current = user.photoUrl;
-            switchActionsUser();
-            setFavoriteIcon(<MdOutlineFavorite className="favorite" id="isFavorite" onClick={() => navigete('/favorites')} />);
-        } else {
-            name.current = "New User";
-            photoUrl.current = defaultUserPhoto;
-            setFavoriteIcon(<MdFavoriteBorder className="favorite" id="noFavorite" onClick={() => navigete('/login')} />);
-        }
-    }, [navigete, user])
+    const BackPage = back ? <IoIosArrowBack onClick={() => navigete('/games')} /> : <span></span>;
     
     return (
         <header id="headerComponent">
