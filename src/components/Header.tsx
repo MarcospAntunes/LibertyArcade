@@ -29,9 +29,11 @@ function Header({back = false}: HeaderProps): JSX.Element {
             name.current = user.name;
             photoUrl.current = user.photoUrl;
             switchActionsUser();
-            setFavoriteIcon(<MdOutlineFavorite className="favorite" id="isFavorite" onClick={() => navigete('/favorites')} />)
+            setFavoriteIcon(<MdOutlineFavorite className="favorite" id="isFavorite" onClick={() => navigete('/favorites')} />);
         } else {
-            setFavoriteIcon(<MdFavoriteBorder className="favorite" id="noFavorite" onClick={() => navigete('/login')} />)
+            name.current = "New User";
+            photoUrl.current = defaultUserPhoto;
+            setFavoriteIcon(<MdFavoriteBorder className="favorite" id="noFavorite" onClick={() => navigete('/login')} />);
         }
     }, [navigete, user])
     
@@ -63,7 +65,7 @@ function Header({back = false}: HeaderProps): JSX.Element {
             <div id="userContainer">
                 {favoriteIcon}
                 <picture>
-                    <img src={photoUrl.current === undefined ? defaultUserPhoto : photoUrl.current} alt={name.current === undefined ? "New User" : name.current} id="photoUser" onClick={() => setOpenProfile((prev) => !prev)}/>
+                    <img src={photoUrl.current} alt={name.current} id="photoUser" onClick={() => setOpenProfile((prev) => !prev)}/>
                 </picture>
                 {openProfile && user !== undefined &&
                     <div id="dropDownProfileContainer">
