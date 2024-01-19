@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react"
 import Header from "../components/Header"
 import FilterInput from "../components/FilterInput"
-import { filterGames } from "../utils/filterGamesFunction"
 import { gamesProps } from "../interfaces/game"
 import GamesList from "../components/GamesList"
 import Card from "../components/Card"
@@ -12,24 +11,16 @@ import openFilter from "../utils/menuFilter"
 import Banner from "../components/Banner"
 import Pagination from "../components/Pagination"
 import usePagination from "../hooks/usePagination"
+import useFilter from "../hooks/useFilter"
 
 function Games(): JSX.Element {
-    const [ games, setGames ] = useState<gamesProps[]>([]);
-    const [ search, setSearch ] = useState<string[]>([]);
-    const [filtredGames, setFiltredGames] = useState<Array<gamesProps>>([]);
+    const { filtredGames, setGames, search, setSearch } = useFilter();
     const [ filterVisibility, setFilterVisibility ] = useState(false);
-    const { 
-        gamesPerPage, 
-        currentGames,   
-    } = usePagination(filtredGames);
+    const { gamesPerPage, currentGames } = usePagination(filtredGames);
 
     useEffect(() => {
         fetchDataGames({ setGames })
-    }, []);
-
-    useEffect(() => {
-        filterGames({ search, setFiltredGames, games });
-    }, [search, games])
+    }, [setGames]);
 
     return (
         <>
